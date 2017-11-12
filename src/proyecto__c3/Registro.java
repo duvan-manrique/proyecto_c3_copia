@@ -73,7 +73,8 @@ javax.swing.JFrame padre;
         jugador2_ap = new javax.swing.JTextField();
         jugador3_ap = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -81,9 +82,11 @@ javax.swing.JFrame padre;
         setMinimumSize(new java.awt.Dimension(590, 300));
         getContentPane().setLayout(null);
 
-        jLabel2.setText("registro");
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel2.setText("registro de jugadores ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(249, 11, 52, 14);
+        jLabel2.setBounds(140, 10, 460, 90);
         getContentPane().add(jugador1_nom);
         jugador1_nom.setBounds(110, 150, 70, 20);
         getContentPane().add(jugador4_nom);
@@ -107,34 +110,43 @@ javax.swing.JFrame padre;
         getContentPane().add(jugador3_edad);
         jugador3_edad.setBounds(380, 210, 70, 20);
 
-        jLabel3.setText("nombre jugador 1");
+        jLabel3.setForeground(java.awt.Color.white);
+        jLabel3.setText("nombre jugador 4");
+        jLabel3.setMinimumSize(new java.awt.Dimension(100, 100));
         getContentPane().add(jLabel3);
         jLabel3.setBounds(10, 240, 85, 14);
 
+        jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("nombre jugador 1");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 150, 85, 14);
 
-        jLabel5.setText("nombre jugador 1");
+        jLabel5.setForeground(java.awt.Color.white);
+        jLabel5.setText("nombre jugador 2");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 180, 85, 14);
 
-        jLabel6.setText("nombre jugador 1");
+        jLabel6.setForeground(java.awt.Color.white);
+        jLabel6.setText("nombre jugador 3");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(10, 210, 85, 14);
 
+        jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("edad");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(340, 180, 34, 14);
 
+        jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("edad");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(340, 210, 34, 14);
 
+        jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("edad");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(340, 240, 34, 14);
 
+        jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("edad");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(340, 150, 34, 14);
@@ -145,26 +157,30 @@ javax.swing.JFrame padre;
             }
         });
         getContentPane().add(jugador1_ced);
-        jugador1_ced.setBounds(530, 150, 70, 20);
+        jugador1_ced.setBounds(510, 150, 70, 20);
         getContentPane().add(jugador4_ced);
-        jugador4_ced.setBounds(530, 240, 70, 20);
+        jugador4_ced.setBounds(510, 240, 70, 20);
         getContentPane().add(jugador2_ced);
-        jugador2_ced.setBounds(530, 180, 70, 20);
+        jugador2_ced.setBounds(510, 180, 70, 20);
         getContentPane().add(jugador3_ced);
-        jugador3_ced.setBounds(530, 210, 70, 20);
+        jugador3_ced.setBounds(510, 210, 70, 20);
 
+        jLabel11.setForeground(java.awt.Color.white);
         jLabel11.setText("cedula");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(470, 180, 41, 14);
 
+        jLabel12.setForeground(java.awt.Color.white);
         jLabel12.setText("cedula");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(470, 210, 41, 14);
 
+        jLabel13.setForeground(java.awt.Color.white);
         jLabel13.setText("cedula");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(470, 230, 41, 14);
+        jLabel13.setBounds(470, 240, 41, 14);
 
+        jLabel14.setForeground(java.awt.Color.white);
         jLabel14.setText("cedula");
         getContentPane().add(jLabel14);
         jLabel14.setBounds(470, 150, 41, 14);
@@ -187,14 +203,17 @@ javax.swing.JFrame padre;
         getContentPane().add(jButton2);
         jButton2.setBounds(170, 280, 73, 23);
 
+        jLabel15.setForeground(java.awt.Color.white);
         jLabel15.setText("apellido");
         getContentPane().add(jLabel15);
         jLabel15.setBounds(200, 150, 36, 14);
 
+        jLabel16.setForeground(java.awt.Color.white);
         jLabel16.setText("apellido");
         getContentPane().add(jLabel16);
         jLabel16.setBounds(200, 180, 36, 14);
 
+        jLabel17.setForeground(java.awt.Color.white);
         jLabel17.setText("apellido");
         getContentPane().add(jLabel17);
         jLabel17.setBounds(200, 210, 36, 14);
@@ -207,13 +226,22 @@ javax.swing.JFrame padre;
         getContentPane().add(jugador3_ap);
         jugador3_ap.setBounds(250, 210, 70, 20);
 
+        jLabel18.setForeground(java.awt.Color.white);
         jLabel18.setText("apellido");
         getContentPane().add(jLabel18);
         jLabel18.setBounds(200, 240, 36, 14);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/milky-way-2695569__340.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 4, 630, 330);
+        jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(500, 280, 0, 0);
+
+        jLabel22.setForeground(java.awt.Color.white);
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/milky-way-2695569__340_1.jpg"))); // NOI18N
+        jLabel22.setMaximumSize(new java.awt.Dimension(800, 800));
+        jLabel22.setMinimumSize(new java.awt.Dimension(800, 800));
+        jLabel22.setPreferredSize(new java.awt.Dimension(800, 800));
+        getContentPane().add(jLabel22);
+        jLabel22.setBounds(0, -230, 800, 800);
 
         getAccessibleContext().setAccessibleParent(this);
 
@@ -315,7 +343,6 @@ javax.swing.JFrame padre;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -326,6 +353,8 @@ javax.swing.JFrame padre;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

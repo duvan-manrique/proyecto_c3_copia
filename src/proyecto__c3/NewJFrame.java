@@ -10,13 +10,17 @@ package proyecto__c3;
  * @author rojas
  */
 public class NewJFrame extends javax.swing.JFrame {
-
+  Registro registro;
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        
         initComponents();
         this.setResizable(false); 
+        registro =new Registro();
+        registro.recibir(this);
+        registro.setVisible(false);
     }
 
     /**
@@ -29,17 +33,32 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 640));
+        setMaximumSize(new java.awt.Dimension(790, 640));
+        setMinimumSize(new java.awt.Dimension(790, 640));
         getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/1200px-Tablero_de_parqués.svg.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 600);
 
+        jButton1.setText("registrarse");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(620, 20, 120, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        registro.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,6 +97,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

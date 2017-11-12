@@ -19,6 +19,7 @@ javax.swing.JFrame padre;
      */
     public Registro() {
         initComponents();
+        //fglkjfgh
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
         

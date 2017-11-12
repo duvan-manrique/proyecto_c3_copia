@@ -34,7 +34,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(790, 640));
@@ -42,6 +41,7 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/1200px-Tablero_de_parqués.svg.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 600);
 
@@ -53,10 +53,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1);
         jButton1.setBounds(620, 20, 120, 23);
-
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(650, 90, 34, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,6 +100,5 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

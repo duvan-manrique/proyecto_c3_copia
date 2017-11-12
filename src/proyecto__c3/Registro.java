@@ -78,8 +78,8 @@ javax.swing.JFrame padre;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
-        setMaximumSize(new java.awt.Dimension(590, 300));
-        setMinimumSize(new java.awt.Dimension(590, 300));
+        setMaximumSize(new java.awt.Dimension(620, 350));
+        setMinimumSize(new java.awt.Dimension(620, 350));
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 48)); // NOI18N

@@ -154,7 +154,7 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         getContentPane().add(f_verde);
         f_verde.setBounds(480, 200, 20, 20);
         getContentPane().add(panel_juego1);
-        panel_juego1.setBounds(0, 0, 600, 600);
+        panel_juego1.setBounds(80, 10, 600, 600);
 
         x1.setMaximumSize(new java.awt.Dimension(60, 25));
         x1.setMinimumSize(new java.awt.Dimension(60, 25));

@@ -10,79 +10,23 @@ package proyecto__c3;
  * @author rojas
  */
 public class tablero_juego extends javax.swing.JFrame {
-Coordenadas ficha_verde []=new Coordenadas[14];
-Coordenadas ficha_rojo []=new Coordenadas[14];
-Coordenadas ficha_azul []=new Coordenadas[14];
-Coordenadas ficha_amarillo []=new Coordenadas[14];
-
+    Movimientos_rojas roja;
+    Movimientos_azules azul;
+    Movimientos_verdes verde;
+    Movimientos_amarillas amarillo;
     public tablero_juego() {
-        initComponents();
-        ficha_verde[0]= new Coordenadas(488,65);
-        ficha_verde[1]= new Coordenadas(482,202);
-        ficha_verde[2]= new Coordenadas(380,101);
-        ficha_verde[3]= new Coordenadas(300,2);
-        ficha_verde[4]= new Coordenadas(199,101);
-        ficha_verde[5]= new Coordenadas(101,199);
-        ficha_verde[6]= new Coordenadas(1,280);
-        ficha_verde[7]= new Coordenadas(100,378);
-        ficha_verde[8]= new Coordenadas(203,479);
-        ficha_verde[9]= new Coordenadas(280,578);
-        ficha_verde[10]= new Coordenadas(378,479);
-        ficha_verde[11]= new Coordenadas(479,376);
-        ficha_verde[12]= new Coordenadas(578,298);
-        ficha_verde[13]= new Coordenadas(358,292);
-        
-        ficha_rojo[0]= new Coordenadas(513,490);
-        ficha_rojo[1]= new Coordenadas(357,479);
-        ficha_rojo[2]= new Coordenadas(478,357);
-        ficha_rojo[3]= new Coordenadas(578,280);
-        ficha_rojo[4]= new Coordenadas(477,223);
-        ficha_rojo[5]= new Coordenadas(357,101);
-        ficha_rojo[6]= new Coordenadas(280,3);
-        ficha_rojo[7]= new Coordenadas(224,101);
-        ficha_rojo[8]= new Coordenadas(99,220);
-        ficha_rojo[9]= new Coordenadas(1,299);
-        ficha_rojo[10]= new Coordenadas(100,359);
-        ficha_rojo[11]= new Coordenadas(222,478);
-        ficha_rojo[12]= new Coordenadas(300,576);
-        ficha_rojo[13]= new Coordenadas(290,352);
-        
-        ficha_azul[0]= new Coordenadas(63,90);
-        ficha_azul[1]= new Coordenadas(239,102);
-        ficha_azul[2]= new Coordenadas(99,240);
-        ficha_azul[3]= new Coordenadas(1,319);
-        ficha_azul[4]= new Coordenadas(102,339);
-        ficha_azul[5]= new Coordenadas(239,478);
-        ficha_azul[6]= new Coordenadas(319,578);
-        ficha_azul[7]= new Coordenadas(339,479);
-        ficha_azul[8]= new Coordenadas(478,338);
-        ficha_azul[9]= new Coordenadas(577,262);
-        ficha_azul[10]= new Coordenadas(478,241);
-        ficha_azul[11]= new Coordenadas(339,102);
-        ficha_azul[12]= new Coordenadas(262,2);
-        ficha_azul[13]= new Coordenadas(292,223);
-        
-        ficha_amarillo[0]= new Coordenadas(92,515);
-        ficha_amarillo[1]= new Coordenadas(100,397);
-        ficha_amarillo[2]= new Coordenadas(184,474);
-        ficha_amarillo[3]= new Coordenadas(260,579);
-        ficha_amarillo[4]= new Coordenadas(396,482);
-        ficha_amarillo[5]= new Coordenadas(481,399);
-        ficha_amarillo[6]= new Coordenadas(577,319);
-        ficha_amarillo[7]= new Coordenadas(478,184);
-        ficha_amarillo[8]= new Coordenadas(397,101);
-        ficha_amarillo[9]= new Coordenadas(318,2);
-        ficha_amarillo[10]= new Coordenadas(184,101);
-        ficha_amarillo[11]= new Coordenadas(100,182);
-        ficha_amarillo[12]= new Coordenadas(3,261);
-        ficha_amarillo[13]= new Coordenadas(222,283);
+        initComponents();    
         iniciar();
     }
     void iniciar(){
-        f_verde.setLocation(ficha_verde[0].getX(), ficha_verde[0].getY());
-        f_roja.setLocation(ficha_rojo[0].getX(), ficha_rojo[0].getY());
-        f_azul.setLocation(ficha_azul[0].getX(), ficha_azul[0].getY());
-        f_amarilla.setLocation(ficha_amarillo[0].getX(), ficha_amarillo[0].getY());
+      roja= new Movimientos_rojas(f_roja,0);
+      roja.start();
+      azul= new Movimientos_azules(f_azul,0);
+      azul.start();
+      verde = new Movimientos_verdes(f_verde,0);
+      verde.start();
+      amarillo = new Movimientos_amarillas(f_amarilla,0);
+      amarillo.start();
     }
 
     /**
@@ -98,18 +42,6 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         f_roja = new javax.swing.JLabel();
         f_amarilla = new javax.swing.JLabel();
         f_verde = new javax.swing.JLabel();
-        x1 = new javax.swing.JTextField();
-        y1 = new javax.swing.JTextField();
-        x2 = new javax.swing.JTextField();
-        y2 = new javax.swing.JTextField();
-        x3 = new javax.swing.JTextField();
-        y3 = new javax.swing.JTextField();
-        x4 = new javax.swing.JTextField();
-        y4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         panel_juego1 = new proyecto__c3.Panel_juego();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -151,130 +83,27 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         });
         getContentPane().add(f_verde);
         f_verde.setBounds(480, 200, 20, 20);
-
-        x1.setMaximumSize(new java.awt.Dimension(60, 25));
-        x1.setMinimumSize(new java.awt.Dimension(60, 25));
-        x1.setName(""); // NOI18N
-        x1.setPreferredSize(new java.awt.Dimension(60, 25));
-        x1.setRequestFocusEnabled(false);
-        getContentPane().add(x1);
-        x1.setBounds(630, 100, 60, 25);
-
-        y1.setMaximumSize(new java.awt.Dimension(60, 25));
-        y1.setMinimumSize(new java.awt.Dimension(60, 25));
-        y1.setPreferredSize(new java.awt.Dimension(60, 25));
-        y1.setRequestFocusEnabled(false);
-        getContentPane().add(y1);
-        y1.setBounds(700, 100, 60, 25);
-
-        x2.setMaximumSize(new java.awt.Dimension(60, 25));
-        x2.setMinimumSize(new java.awt.Dimension(60, 25));
-        x2.setPreferredSize(new java.awt.Dimension(60, 25));
-        x2.setRequestFocusEnabled(false);
-        getContentPane().add(x2);
-        x2.setBounds(630, 130, 60, 25);
-
-        y2.setMaximumSize(new java.awt.Dimension(60, 25));
-        y2.setMinimumSize(new java.awt.Dimension(60, 25));
-        y2.setPreferredSize(new java.awt.Dimension(60, 25));
-        y2.setRequestFocusEnabled(false);
-        getContentPane().add(y2);
-        y2.setBounds(700, 130, 60, 25);
-
-        x3.setMaximumSize(new java.awt.Dimension(60, 25));
-        x3.setMinimumSize(new java.awt.Dimension(60, 25));
-        x3.setPreferredSize(new java.awt.Dimension(60, 25));
-        x3.setRequestFocusEnabled(false);
-        x3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                x3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(x3);
-        x3.setBounds(630, 160, 60, 25);
-
-        y3.setMaximumSize(new java.awt.Dimension(60, 25));
-        y3.setMinimumSize(new java.awt.Dimension(60, 25));
-        y3.setPreferredSize(new java.awt.Dimension(60, 25));
-        y3.setRequestFocusEnabled(false);
-        getContentPane().add(y3);
-        y3.setBounds(700, 160, 60, 25);
-
-        x4.setMaximumSize(new java.awt.Dimension(60, 25));
-        x4.setMinimumSize(new java.awt.Dimension(60, 25));
-        x4.setPreferredSize(new java.awt.Dimension(60, 25));
-        x4.setRequestFocusEnabled(false);
-        getContentPane().add(x4);
-        x4.setBounds(630, 190, 60, 25);
-
-        y4.setMaximumSize(new java.awt.Dimension(60, 25));
-        y4.setMinimumSize(new java.awt.Dimension(60, 25));
-        y4.setPreferredSize(new java.awt.Dimension(60, 25));
-        y4.setRequestFocusEnabled(false);
-        getContentPane().add(y4);
-        y4.setBounds(700, 190, 60, 25);
-
-        jButton1.setText("si");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(770, 100, 30, 23);
-
-        jButton2.setText("si");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(770, 130, 30, 23);
-
-        jButton3.setText("si");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(770, 160, 30, 23);
-
-        jButton4.setText("si");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(770, 190, 30, 23);
         getContentPane().add(panel_juego1);
         panel_juego1.setBounds(0, 0, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void x3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_x3ActionPerformed
-
     private void f_amarillaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_amarillaMouseDragged
-        f_amarilla.setLocation(f_amarilla.getLocation().x + evt.getX() - f_amarilla.getWidth() / 2, f_amarilla.getLocation().y + evt.getY() - f_amarilla.getHeight() / 2);
-        x1.setText(f_amarilla.getLocation().getX()+"");
-        y1.setText(f_amarilla.getLocation().getY()+"");
+       
     }//GEN-LAST:event_f_amarillaMouseDragged
 
     private void f_verdeMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_verdeMouseDragged
-      f_verde.setLocation(f_verde.getLocation().x + evt.getX() - f_verde.getWidth() / 2, f_verde.getLocation().y + evt.getY() - f_verde.getHeight() / 2);
-        x2.setText(f_verde.getLocation().getX()+"");
-        y2.setText(f_verde.getLocation().getY()+"");
+ 
     }//GEN-LAST:event_f_verdeMouseDragged
 
     private void f_rojaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_rojaMouseDragged
-        f_roja.setLocation(f_roja.getLocation().x + evt.getX() - f_roja.getWidth() / 2, f_roja.getLocation().y + evt.getY() - f_roja.getHeight() / 2);
-        x3.setText(f_roja.getLocation().getX()+"");
-        y3.setText(f_roja.getLocation().getY()+"");
+
     }//GEN-LAST:event_f_rojaMouseDragged
 
     private void f_azulMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f_azulMouseDragged
-        f_azul.setLocation(f_azul.getLocation().x + evt.getX() - f_azul.getWidth() / 2, f_azul.getLocation().y + evt.getY() - f_azul.getHeight() / 2);
-        x4.setText(f_azul.getLocation().getX()+"");
-        y4.setText(f_azul.getLocation().getY()+"");
+
     }//GEN-LAST:event_f_azulMouseDragged
-int i=0;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        f_verde.setLocation(ficha_verde[i].getX(), ficha_verde[i].getY());
-        f_roja.setLocation(ficha_rojo[i].getX(), ficha_rojo[i].getY());
-        f_azul.setLocation(ficha_azul[i].getX(), ficha_azul[i].getY());
-        f_amarilla.setLocation(ficha_amarillo[i].getX(), ficha_amarillo[i].getY());
-        i++;
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,18 +145,6 @@ int i=0;
     private javax.swing.JLabel f_azul;
     private javax.swing.JLabel f_roja;
     private javax.swing.JLabel f_verde;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private proyecto__c3.Panel_juego panel_juego1;
-    private javax.swing.JTextField x1;
-    private javax.swing.JTextField x2;
-    private javax.swing.JTextField x3;
-    private javax.swing.JTextField x4;
-    private javax.swing.JTextField y1;
-    private javax.swing.JTextField y2;
-    private javax.swing.JTextField y3;
-    private javax.swing.JTextField y4;
     // End of variables declaration//GEN-END:variables
 }

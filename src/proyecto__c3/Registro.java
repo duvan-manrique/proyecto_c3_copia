@@ -307,6 +307,9 @@ javax.swing.JFrame padre;
         jLabel19.setText("imagen");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(330, 150, 50, 14);
+
+        jugador2_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
+        jugador2_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
         getContentPane().add(jugador2_fecha);
         jugador2_fecha.setBounds(490, 190, 130, 30);
 
@@ -336,6 +339,9 @@ javax.swing.JFrame padre;
         jLabel23.setText(" nacimento");
         getContentPane().add(jLabel23);
         jLabel23.setBounds(410, 90, 100, 14);
+
+        jugador1_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
+        jugador1_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
         getContentPane().add(jugador1_fecha);
         jugador1_fecha.setBounds(490, 80, 130, 30);
         getContentPane().add(jugador2_imagen);
@@ -371,6 +377,9 @@ javax.swing.JFrame padre;
         jLabel26.setText(" nacimento");
         getContentPane().add(jLabel26);
         jLabel26.setBounds(410, 280, 100, 14);
+
+        jugador3_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
+        jugador3_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
         getContentPane().add(jugador3_fecha);
         jugador3_fecha.setBounds(480, 280, 140, 30);
         getContentPane().add(jugador3_imagen);
@@ -406,6 +415,9 @@ javax.swing.JFrame padre;
         jLabel29.setText(" nacimento");
         getContentPane().add(jLabel29);
         jLabel29.setBounds(410, 390, 100, 14);
+
+        jugador4_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
+        jugador4_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
         getContentPane().add(jugador4_fecha);
         jugador4_fecha.setBounds(490, 390, 130, 30);
         getContentPane().add(jugador4_imagen);

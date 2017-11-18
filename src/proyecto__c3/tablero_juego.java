@@ -98,7 +98,6 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         f_roja = new javax.swing.JLabel();
         f_amarilla = new javax.swing.JLabel();
         f_verde = new javax.swing.JLabel();
-        panel_juego1 = new proyecto__c3.Panel_juego();
         x1 = new javax.swing.JTextField();
         y1 = new javax.swing.JTextField();
         x2 = new javax.swing.JTextField();
@@ -111,11 +110,10 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        panel_juego1 = new proyecto__c3.Panel_juego();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(837, 640));
         setMinimumSize(new java.awt.Dimension(837, 640));
-        setPreferredSize(new java.awt.Dimension(837, 640));
         getContentPane().setLayout(null);
 
         f_azul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/peque5.png"))); // NOI18N
@@ -153,8 +151,6 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         });
         getContentPane().add(f_verde);
         f_verde.setBounds(480, 200, 20, 20);
-        getContentPane().add(panel_juego1);
-        panel_juego1.setBounds(80, 10, 600, 600);
 
         x1.setMaximumSize(new java.awt.Dimension(60, 25));
         x1.setMinimumSize(new java.awt.Dimension(60, 25));
@@ -238,6 +234,8 @@ Coordenadas ficha_amarillo []=new Coordenadas[14];
         jButton4.setText("si");
         getContentPane().add(jButton4);
         jButton4.setBounds(770, 190, 30, 23);
+        getContentPane().add(panel_juego1);
+        panel_juego1.setBounds(0, 0, 600, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

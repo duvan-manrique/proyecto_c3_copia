@@ -8,6 +8,18 @@ package proyecto__c3;
 import java.awt.Color;
 import javax.swing.JFrame;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.sql.*;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author rojas
@@ -19,7 +31,6 @@ javax.swing.JFrame padre;
      */
     public Registro() {
         initComponents();
-        //fglkjfgh
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
         
@@ -40,10 +51,10 @@ javax.swing.JFrame padre;
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jugador1_nom = new javax.swing.JTextField();
-        jugador4_nom = new javax.swing.JTextField();
-        jugador2_nom = new javax.swing.JTextField();
-        jugador3_nom = new javax.swing.JTextField();
+        jugador1_nombre = new javax.swing.JTextField();
+        jugador4_nombre = new javax.swing.JTextField();
+        jugador2_nombre = new javax.swing.JTextField();
+        jugador3_nombre = new javax.swing.JTextField();
         jugador1_edad = new javax.swing.JTextField();
         jugador4_edad = new javax.swing.JTextField();
         jugador2_edad = new javax.swing.JTextField();
@@ -56,46 +67,75 @@ javax.swing.JFrame padre;
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jugador1_ced = new javax.swing.JTextField();
-        jugador4_ced = new javax.swing.JTextField();
-        jugador2_ced = new javax.swing.JTextField();
-        jugador3_ced = new javax.swing.JTextField();
+        jugador1_cedula = new javax.swing.JTextField();
+        jugador4_cedula = new javax.swing.JTextField();
+        jugador2_cedula = new javax.swing.JTextField();
+        jugador3_cedula = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        registrarse = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jugador1_ap = new javax.swing.JTextField();
-        jugador4_ap = new javax.swing.JTextField();
-        jugador2_ap = new javax.swing.JTextField();
-        jugador3_ap = new javax.swing.JTextField();
+        jugador1_apellido = new javax.swing.JTextField();
+        jugador4_apellido = new javax.swing.JTextField();
+        jugador2_apellido = new javax.swing.JTextField();
+        jugador3_apellido = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        lblfoto = new javax.swing.JLabel();
+        jugador1_seleccion = new javax.swing.JButton();
+        jugador1_imagen = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jugador2_fecha = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        lblfoto1 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jugador1_fecha = new com.toedter.calendar.JDateChooser();
+        jugador2_imagen = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jugador2_seleccion = new javax.swing.JButton();
+        lblfoto2 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jugador3_fecha = new com.toedter.calendar.JDateChooser();
+        jugador3_imagen = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jugador3_seleccion = new javax.swing.JButton();
+        lblfoto3 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jugador4_fecha = new com.toedter.calendar.JDateChooser();
+        jugador4_imagen = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jugador4_seleccion = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
-        setMaximumSize(new java.awt.Dimension(620, 350));
-        setMinimumSize(new java.awt.Dimension(620, 350));
+        setBackground(new java.awt.Color(0, 102, 102));
+        setMaximumSize(new java.awt.Dimension(640, 598));
+        setMinimumSize(new java.awt.Dimension(640, 598));
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("registro de jugadores ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(140, 10, 460, 90);
-        getContentPane().add(jugador1_nom);
-        jugador1_nom.setBounds(110, 150, 70, 20);
-        getContentPane().add(jugador4_nom);
-        jugador4_nom.setBounds(110, 240, 70, 20);
-        getContentPane().add(jugador2_nom);
-        jugador2_nom.setBounds(110, 180, 70, 20);
-        getContentPane().add(jugador3_nom);
-        jugador3_nom.setBounds(110, 210, 70, 20);
+        jLabel2.setBounds(120, 20, 460, 60);
+        getContentPane().add(jugador1_nombre);
+        jugador1_nombre.setBounds(260, 90, 130, 20);
+        getContentPane().add(jugador4_nombre);
+        jugador4_nombre.setBounds(260, 390, 140, 20);
+        getContentPane().add(jugador2_nombre);
+        jugador2_nombre.setBounds(270, 190, 120, 20);
+        getContentPane().add(jugador3_nombre);
+        jugador3_nombre.setBounds(270, 280, 130, 20);
 
         jugador1_edad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,146 +143,292 @@ javax.swing.JFrame padre;
             }
         });
         getContentPane().add(jugador1_edad);
-        jugador1_edad.setBounds(380, 150, 70, 20);
+        jugador1_edad.setBounds(410, 120, 70, 20);
         getContentPane().add(jugador4_edad);
-        jugador4_edad.setBounds(380, 240, 70, 20);
+        jugador4_edad.setBounds(390, 430, 90, 20);
         getContentPane().add(jugador2_edad);
-        jugador2_edad.setBounds(380, 180, 70, 20);
+        jugador2_edad.setBounds(410, 220, 80, 20);
         getContentPane().add(jugador3_edad);
-        jugador3_edad.setBounds(380, 210, 70, 20);
+        jugador3_edad.setBounds(410, 320, 90, 20);
 
         jLabel3.setForeground(java.awt.Color.white);
-        jLabel3.setText("nombre jugador 4");
+        jLabel3.setText("nombre ");
         jLabel3.setMinimumSize(new java.awt.Dimension(100, 100));
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 240, 85, 14);
+        jLabel3.setBounds(170, 400, 60, 14);
 
-        jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("nombre jugador 1");
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("jugador 4");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 150, 85, 14);
+        jLabel4.setBounds(110, 390, 76, 20);
 
         jLabel5.setForeground(java.awt.Color.white);
-        jLabel5.setText("nombre jugador 2");
+        jLabel5.setText("nombre ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 180, 85, 14);
+        jLabel5.setBounds(180, 190, 39, 14);
 
         jLabel6.setForeground(java.awt.Color.white);
-        jLabel6.setText("nombre jugador 3");
+        jLabel6.setText("nombre ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 210, 85, 14);
+        jLabel6.setBounds(180, 290, 39, 14);
 
         jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("edad");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(340, 180, 34, 14);
+        jLabel7.setBounds(350, 220, 34, 14);
 
         jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("edad");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(340, 210, 34, 14);
+        jLabel8.setBounds(360, 320, 34, 14);
 
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("edad");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(340, 240, 34, 14);
+        jLabel9.setBounds(340, 430, 34, 14);
 
         jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("edad");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(340, 150, 34, 14);
+        jLabel10.setBounds(360, 120, 34, 20);
 
-        jugador1_ced.addActionListener(new java.awt.event.ActionListener() {
+        jugador1_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jugador1_cedActionPerformed(evt);
+                jugador1_cedulaActionPerformed(evt);
             }
         });
-        getContentPane().add(jugador1_ced);
-        jugador1_ced.setBounds(510, 150, 70, 20);
-        getContentPane().add(jugador4_ced);
-        jugador4_ced.setBounds(510, 240, 70, 20);
-        getContentPane().add(jugador2_ced);
-        jugador2_ced.setBounds(510, 180, 70, 20);
-        getContentPane().add(jugador3_ced);
-        jugador3_ced.setBounds(510, 210, 70, 20);
+        getContentPane().add(jugador1_cedula);
+        jugador1_cedula.setBounds(190, 150, 130, 20);
+        getContentPane().add(jugador4_cedula);
+        jugador4_cedula.setBounds(200, 460, 120, 20);
+        getContentPane().add(jugador2_cedula);
+        jugador2_cedula.setBounds(190, 250, 130, 20);
+
+        jugador3_cedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugador3_cedulaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jugador3_cedula);
+        jugador3_cedula.setBounds(200, 350, 120, 20);
 
         jLabel11.setForeground(java.awt.Color.white);
         jLabel11.setText("cedula");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(470, 180, 41, 14);
+        jLabel11.setBounds(140, 250, 41, 20);
 
         jLabel12.setForeground(java.awt.Color.white);
         jLabel12.setText("cedula");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(470, 210, 41, 14);
+        jLabel12.setBounds(150, 350, 41, 14);
 
         jLabel13.setForeground(java.awt.Color.white);
         jLabel13.setText("cedula");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(470, 240, 41, 14);
+        jLabel13.setBounds(140, 460, 41, 14);
 
         jLabel14.setForeground(java.awt.Color.white);
         jLabel14.setText("cedula");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(470, 150, 41, 14);
+        jLabel14.setBounds(140, 150, 41, 14);
 
-        jButton1.setText("registarse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/si.png"))); // NOI18N
+        registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registrarseActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(60, 280, 81, 23);
+        getContentPane().add(registrarse);
+        registrarse.setBounds(130, 510, 110, 40);
 
-        jButton2.setText("cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancelar.setBackground(new java.awt.Color(255, 0, 0));
+        cancelar.setForeground(new java.awt.Color(255, 0, 0));
+        cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/no.png"))); // NOI18N
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(170, 280, 73, 23);
+        getContentPane().add(cancelar);
+        cancelar.setBounds(370, 510, 110, 40);
 
         jLabel15.setForeground(java.awt.Color.white);
         jLabel15.setText("apellido");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(200, 150, 36, 14);
+        jLabel15.setBounds(140, 120, 36, 14);
 
         jLabel16.setForeground(java.awt.Color.white);
         jLabel16.setText("apellido");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(200, 180, 36, 14);
+        jLabel16.setBounds(140, 220, 36, 14);
 
         jLabel17.setForeground(java.awt.Color.white);
         jLabel17.setText("apellido");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(200, 210, 36, 14);
-        getContentPane().add(jugador1_ap);
-        jugador1_ap.setBounds(250, 150, 70, 20);
-        getContentPane().add(jugador4_ap);
-        jugador4_ap.setBounds(250, 240, 70, 20);
-        getContentPane().add(jugador2_ap);
-        jugador2_ap.setBounds(250, 180, 70, 20);
-        getContentPane().add(jugador3_ap);
-        jugador3_ap.setBounds(250, 210, 70, 20);
+        jLabel17.setBounds(150, 320, 36, 14);
+        getContentPane().add(jugador1_apellido);
+        jugador1_apellido.setBounds(190, 120, 130, 20);
+        getContentPane().add(jugador4_apellido);
+        jugador4_apellido.setBounds(200, 430, 120, 20);
+        getContentPane().add(jugador2_apellido);
+        jugador2_apellido.setBounds(190, 220, 130, 20);
+        getContentPane().add(jugador3_apellido);
+        jugador3_apellido.setBounds(200, 320, 120, 20);
 
         jLabel18.setForeground(java.awt.Color.white);
         jLabel18.setText("apellido");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(200, 240, 36, 14);
+        jLabel18.setBounds(140, 430, 36, 14);
 
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel20);
         jLabel20.setBounds(500, 280, 0, 0);
 
-        jLabel22.setForeground(java.awt.Color.white);
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/milky-way-2695569__340_1.jpg"))); // NOI18N
-        jLabel22.setMaximumSize(new java.awt.Dimension(800, 800));
-        jLabel22.setMinimumSize(new java.awt.Dimension(800, 800));
-        jLabel22.setPreferredSize(new java.awt.Dimension(800, 800));
+        lblfoto.setBackground(new java.awt.Color(204, 0, 0));
+        lblfoto.setForeground(new java.awt.Color(0, 255, 255));
+        lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/a.jpg"))); // NOI18N
+        getContentPane().add(lblfoto);
+        lblfoto.setBounds(10, 90, 80, 80);
+
+        jugador1_seleccion.setText("Seleccionar");
+        jugador1_seleccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugador1_seleccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jugador1_seleccion);
+        jugador1_seleccion.setBounds(530, 150, 87, 23);
+        getContentPane().add(jugador1_imagen);
+        jugador1_imagen.setBounds(380, 150, 140, 20);
+
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("imagen");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(330, 150, 50, 14);
+        getContentPane().add(jugador2_fecha);
+        jugador2_fecha.setBounds(490, 190, 130, 30);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(" nacimento");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(410, 190, 100, 14);
+
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("nombre");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(180, 90, 50, 14);
+
+        lblfoto1.setBackground(new java.awt.Color(204, 0, 0));
+        lblfoto1.setForeground(new java.awt.Color(0, 255, 255));
+        lblfoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/a.jpg"))); // NOI18N
+        getContentPane().add(lblfoto1);
+        lblfoto1.setBounds(10, 190, 80, 80);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("jugador 1");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(0, -230, 800, 800);
+        jLabel22.setBounds(110, 90, 76, 20);
+
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText(" nacimento");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(410, 90, 100, 14);
+        getContentPane().add(jugador1_fecha);
+        jugador1_fecha.setBounds(490, 80, 130, 30);
+        getContentPane().add(jugador2_imagen);
+        jugador2_imagen.setBounds(380, 250, 140, 20);
+
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("imagen");
+        getContentPane().add(jLabel24);
+        jLabel24.setBounds(330, 250, 50, 14);
+
+        jugador2_seleccion.setText("Seleccionar");
+        jugador2_seleccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugador2_seleccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jugador2_seleccion);
+        jugador2_seleccion.setBounds(530, 250, 87, 23);
+
+        lblfoto2.setBackground(new java.awt.Color(204, 0, 0));
+        lblfoto2.setForeground(new java.awt.Color(0, 255, 255));
+        lblfoto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/a.jpg"))); // NOI18N
+        getContentPane().add(lblfoto2);
+        lblfoto2.setBounds(10, 290, 80, 80);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("jugador 2");
+        getContentPane().add(jLabel25);
+        jLabel25.setBounds(110, 190, 76, 20);
+
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText(" nacimento");
+        getContentPane().add(jLabel26);
+        jLabel26.setBounds(410, 280, 100, 14);
+        getContentPane().add(jugador3_fecha);
+        jugador3_fecha.setBounds(480, 280, 140, 30);
+        getContentPane().add(jugador3_imagen);
+        jugador3_imagen.setBounds(380, 360, 140, 20);
+
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("imagen");
+        getContentPane().add(jLabel27);
+        jLabel27.setBounds(330, 360, 50, 14);
+
+        jugador3_seleccion.setText("Seleccionar");
+        jugador3_seleccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugador3_seleccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jugador3_seleccion);
+        jugador3_seleccion.setBounds(530, 360, 87, 23);
+
+        lblfoto3.setBackground(new java.awt.Color(204, 0, 0));
+        lblfoto3.setForeground(new java.awt.Color(0, 255, 255));
+        lblfoto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/a.jpg"))); // NOI18N
+        getContentPane().add(lblfoto3);
+        lblfoto3.setBounds(10, 390, 80, 80);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("jugador 3");
+        getContentPane().add(jLabel28);
+        jLabel28.setBounds(110, 290, 76, 20);
+
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText(" nacimento");
+        getContentPane().add(jLabel29);
+        jLabel29.setBounds(410, 390, 100, 14);
+        getContentPane().add(jugador4_fecha);
+        jugador4_fecha.setBounds(490, 390, 130, 30);
+        getContentPane().add(jugador4_imagen);
+        jugador4_imagen.setBounds(380, 460, 130, 20);
+
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("imagen");
+        getContentPane().add(jLabel30);
+        jLabel30.setBounds(330, 460, 50, 14);
+
+        jugador4_seleccion.setText("Seleccionar");
+        jugador4_seleccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugador4_seleccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jugador4_seleccion);
+        jugador4_seleccion.setBounds(530, 460, 87, 23);
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/milky-way-2695569__340_1.jpg"))); // NOI18N
+        jLabel31.setText(" ");
+        getContentPane().add(jLabel31);
+        jLabel31.setBounds(0, 0, 630, 580);
 
         getAccessibleContext().setAccessibleParent(this);
 
@@ -253,54 +439,217 @@ javax.swing.JFrame padre;
         // TODO add your handling code here:
     }//GEN-LAST:event_jugador1_edadActionPerformed
 
-    private void jugador1_cedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador1_cedActionPerformed
+    private void jugador1_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador1_cedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jugador1_cedActionPerformed
+    }//GEN-LAST:event_jugador1_cedulaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- jugador1_ap.setText("");
- jugador1_ced.setText("");
- jugador1_edad.setText("");
- jugador1_nom.setText("");
- jugador2_ap.setText("");
- jugador2_ced.setText("");
- jugador2_edad.setText("");
- jugador2_nom.setText("");
- jugador3_ap.setText("");
- jugador3_ced.setText("");
- jugador3_edad.setText("");
- jugador3_nom.setText("");
- jugador4_ap.setText("");
- jugador4_ced.setText("");
- jugador4_edad.setText("");
- jugador4_nom.setText("");
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        jugador1_apellido.setText("");
+        jugador1_cedula.setText("");
+        jugador1_edad.setText("");
+        jugador1_nombre.setText("");
+        jugador1_imagen.setText("");
+        jugador1_fecha.setCalendar(null);
+
+        jugador2_apellido.setText("");
+        jugador2_cedula.setText("");
+        jugador2_edad.setText("");
+        jugador2_nombre.setText("");
+        jugador2_imagen.setText("");
+        jugador2_fecha.setCalendar(null);
+
+        jugador3_apellido.setText("");
+        jugador3_cedula.setText("");
+        jugador3_edad.setText("");
+        jugador3_nombre.setText("");
+        jugador3_imagen.setText("");
+        jugador3_fecha.setCalendar(null);
+
+        jugador4_apellido.setText("");
+        jugador4_cedula.setText("");
+        jugador4_edad.setText("");
+        jugador4_nombre.setText("");
+        jugador4_imagen.setText("");
+        jugador4_fecha.setCalendar(null);
+ 
  this.setVisible(false);
 
  
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- jugador1_ap.setText("");
- jugador1_ced.setText("");
- jugador1_edad.setText("");
- jugador1_nom.setText("");
- jugador2_ap.setText("");
- jugador2_ced.setText("");
- jugador2_edad.setText("");
- jugador2_nom.setText("");
- jugador3_ap.setText("");
- jugador3_ced.setText("");
- jugador3_edad.setText("");
- jugador3_nom.setText("");
- jugador4_ap.setText("");
- jugador4_ced.setText("");
- jugador4_edad.setText("");
- jugador4_nom.setText("");
- this.setVisible(false);
+    private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
+        jugador1_apellido.setText("");
+        jugador1_cedula.setText("");
+        jugador1_edad.setText("");
+        jugador1_nombre.setText("");
+        jugador1_imagen.setText("");
+        jugador1_fecha.setCalendar(null);
 
+        jugador2_apellido.setText("");
+        jugador2_cedula.setText("");
+        jugador2_edad.setText("");
+        jugador2_nombre.setText("");
+        jugador2_imagen.setText("");
+        jugador2_fecha.setCalendar(null);
 
+        jugador3_apellido.setText("");
+        jugador3_cedula.setText("");
+        jugador3_edad.setText("");
+        jugador3_nombre.setText("");
+        jugador3_imagen.setText("");
+        jugador3_fecha.setCalendar(null);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jugador4_apellido.setText("");
+        jugador4_cedula.setText("");
+        jugador4_edad.setText("");
+        jugador4_nombre.setText("");
+        jugador4_imagen.setText("");
+        jugador4_fecha.setCalendar(null);
+
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_registrarseActionPerformed
+
+    private void jugador1_seleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador1_seleccionActionPerformed
+         // TODO add your handling code here:
+        //Creamos nuestra variable archivo en la cual podremos usar todos los metodos de la clase jFileChooser
+        JFileChooser archivo = new JFileChooser();
+        //Si deseamos crear filtros para la selecion de archivos
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de Archivos JPEG(*.JPG;*.JPEG)", "jpg","jpeg");
+        //Si deseas que se muestre primero los filtros usa la linea q esta abajo de esta.
+        //archivo.setFileFilter(filtro);
+        // Agregamos el Filtro pero cuidado se mostrara despues de todos los archivos
+        archivo.addChoosableFileFilter(filtro);
+        // Colocamos titulo a nuestra ventana de Seleccion
+        archivo.setDialogTitle("Abrir Archivo");
+        //Si deseamos que muestre una carpeta predetermina usa la siguiente linea
+        File ruta = new File("D:/productos");
+        //Le implementamos a nuestro ventana de seleccion
+        archivo.setCurrentDirectory(ruta);
+        //Abrimos nuestra Ventana de Selccion
+        int ventana = archivo.showOpenDialog(null);
+        //hacemos comparacion en caso de aprete el boton abrir
+        if(ventana == JFileChooser.APPROVE_OPTION)
+        {
+            //Obtenemos la ruta de nuestra imagen seleccionada
+            File file = archivo.getSelectedFile();
+            //Lo imprimimos en una caja de texto para ver su ruta
+            jugador1_imagen.setText(String.valueOf(file));
+            //de cierto modo necesitamos tener la imagen para ello debemos conocer la ruta de dicha imagen
+            Image foto= getToolkit().getImage(jugador1_imagen.getText());
+            //Le damos dimension a nuestro label que tendra la imagen
+            foto= foto.getScaledInstance(110, 110, Image.SCALE_DEFAULT);
+            //Imprimimos la imagen en el label
+            lblfoto.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_jugador1_seleccionActionPerformed
+
+    private void jugador2_seleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador2_seleccionActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        //Creamos nuestra variable archivo en la cual podremos usar todos los metodos de la clase jFileChooser
+        JFileChooser archivo = new JFileChooser();
+        //Si deseamos crear filtros para la selecion de archivos
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de Archivos JPEG(*.JPG;*.JPEG)", "jpg","jpeg");
+        //Si deseas que se muestre primero los filtros usa la linea q esta abajo de esta.
+        //archivo.setFileFilter(filtro);
+        // Agregamos el Filtro pero cuidado se mostrara despues de todos los archivos
+        archivo.addChoosableFileFilter(filtro);
+        // Colocamos titulo a nuestra ventana de Seleccion
+        archivo.setDialogTitle("Abrir Archivo");
+        //Si deseamos que muestre una carpeta predetermina usa la siguiente linea
+        File ruta = new File("D:/productos");
+        //Le implementamos a nuestro ventana de seleccion
+        archivo.setCurrentDirectory(ruta);
+        //Abrimos nuestra Ventana de Selccion
+        int ventana = archivo.showOpenDialog(null);
+        //hacemos comparacion en caso de aprete el boton abrir
+        if(ventana == JFileChooser.APPROVE_OPTION)
+        {
+            //Obtenemos la ruta de nuestra imagen seleccionada
+            File file = archivo.getSelectedFile();
+            //Lo imprimimos en una caja de texto para ver su ruta
+            jugador2_imagen.setText(String.valueOf(file));
+            //de cierto modo necesitamos tener la imagen para ello debemos conocer la ruta de dicha imagen
+            Image foto= getToolkit().getImage(jugador2_imagen.getText());
+            //Le damos dimension a nuestro label que tendra la imagen
+            foto= foto.getScaledInstance(110, 110, Image.SCALE_DEFAULT);
+            //Imprimimos la imagen en el label
+            lblfoto1.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_jugador2_seleccionActionPerformed
+
+    private void jugador3_seleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador3_seleccionActionPerformed
+        // TODO add your handling code here:
+         //Creamos nuestra variable archivo en la cual podremos usar todos los metodos de la clase jFileChooser
+        JFileChooser archivo = new JFileChooser();
+        //Si deseamos crear filtros para la selecion de archivos
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de Archivos JPEG(*.JPG;*.JPEG)", "jpg","jpeg");
+        //Si deseas que se muestre primero los filtros usa la linea q esta abajo de esta.
+        //archivo.setFileFilter(filtro);
+        // Agregamos el Filtro pero cuidado se mostrara despues de todos los archivos
+        archivo.addChoosableFileFilter(filtro);
+        // Colocamos titulo a nuestra ventana de Seleccion
+        archivo.setDialogTitle("Abrir Archivo");
+        //Si deseamos que muestre una carpeta predetermina usa la siguiente linea
+        File ruta = new File("D:/productos");
+        //Le implementamos a nuestro ventana de seleccion
+        archivo.setCurrentDirectory(ruta);
+        //Abrimos nuestra Ventana de Selccion
+        int ventana = archivo.showOpenDialog(null);
+        //hacemos comparacion en caso de aprete el boton abrir
+        if(ventana == JFileChooser.APPROVE_OPTION)
+        {
+            //Obtenemos la ruta de nuestra imagen seleccionada
+            File file = archivo.getSelectedFile();
+            //Lo imprimimos en una caja de texto para ver su ruta
+            jugador3_imagen.setText(String.valueOf(file));
+            //de cierto modo necesitamos tener la imagen para ello debemos conocer la ruta de dicha imagen
+            Image foto= getToolkit().getImage(jugador3_imagen.getText());
+            //Le damos dimension a nuestro label que tendra la imagen
+            foto= foto.getScaledInstance(110, 110, Image.SCALE_DEFAULT);
+            //Imprimimos la imagen en el label
+            lblfoto2.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_jugador3_seleccionActionPerformed
+
+    private void jugador4_seleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador4_seleccionActionPerformed
+        // TODO add your handling code here:
+         //Creamos nuestra variable archivo en la cual podremos usar todos los metodos de la clase jFileChooser
+        JFileChooser archivo = new JFileChooser();
+        //Si deseamos crear filtros para la selecion de archivos
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de Archivos JPEG(*.JPG;*.JPEG)", "jpg","jpeg");
+        //Si deseas que se muestre primero los filtros usa la linea q esta abajo de esta.
+        //archivo.setFileFilter(filtro);
+        // Agregamos el Filtro pero cuidado se mostrara despues de todos los archivos
+        archivo.addChoosableFileFilter(filtro);
+        // Colocamos titulo a nuestra ventana de Seleccion
+        archivo.setDialogTitle("Abrir Archivo");
+        //Si deseamos que muestre una carpeta predetermina usa la siguiente linea
+        File ruta = new File("D:/productos");
+        //Le implementamos a nuestro ventana de seleccion
+        archivo.setCurrentDirectory(ruta);
+        //Abrimos nuestra Ventana de Selccion
+        int ventana = archivo.showOpenDialog(null);
+        //hacemos comparacion en caso de aprete el boton abrir
+        if(ventana == JFileChooser.APPROVE_OPTION)
+        {
+            //Obtenemos la ruta de nuestra imagen seleccionada
+            File file = archivo.getSelectedFile();
+            //Lo imprimimos en una caja de texto para ver su ruta
+            jugador4_imagen.setText(String.valueOf(file));
+            //de cierto modo necesitamos tener la imagen para ello debemos conocer la ruta de dicha imagen
+            Image foto= getToolkit().getImage(jugador4_imagen.getText());
+            //Le damos dimension a nuestro label que tendra la imagen
+            foto= foto.getScaledInstance(110, 110, Image.SCALE_DEFAULT);
+            //Imprimimos la imagen en el label
+            lblfoto3.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_jugador4_seleccionActionPerformed
+
+    private void jugador3_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador3_cedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jugador3_cedulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,6 +678,7 @@ javax.swing.JFrame padre;
             java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -342,42 +692,70 @@ javax.swing.JFrame padre;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JButton cancelar;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel17;
+    public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jugador1_ap;
-    private javax.swing.JTextField jugador1_ced;
-    private javax.swing.JTextField jugador1_edad;
-    private javax.swing.JTextField jugador1_nom;
-    private javax.swing.JTextField jugador2_ap;
-    private javax.swing.JTextField jugador2_ced;
-    private javax.swing.JTextField jugador2_edad;
-    private javax.swing.JTextField jugador2_nom;
-    private javax.swing.JTextField jugador3_ap;
-    private javax.swing.JTextField jugador3_ced;
-    private javax.swing.JTextField jugador3_edad;
-    private javax.swing.JTextField jugador3_nom;
-    private javax.swing.JTextField jugador4_ap;
-    private javax.swing.JTextField jugador4_ced;
-    private javax.swing.JTextField jugador4_edad;
-    private javax.swing.JTextField jugador4_nom;
+    public javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel22;
+    public javax.swing.JLabel jLabel23;
+    public javax.swing.JLabel jLabel24;
+    public javax.swing.JLabel jLabel25;
+    public javax.swing.JLabel jLabel26;
+    public javax.swing.JLabel jLabel27;
+    public javax.swing.JLabel jLabel28;
+    public javax.swing.JLabel jLabel29;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel30;
+    public javax.swing.JLabel jLabel31;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
+    public javax.swing.JTextField jugador1_apellido;
+    public javax.swing.JTextField jugador1_cedula;
+    public javax.swing.JTextField jugador1_edad;
+    public com.toedter.calendar.JDateChooser jugador1_fecha;
+    public javax.swing.JTextField jugador1_imagen;
+    public javax.swing.JTextField jugador1_nombre;
+    public javax.swing.JButton jugador1_seleccion;
+    public javax.swing.JTextField jugador2_apellido;
+    public javax.swing.JTextField jugador2_cedula;
+    public javax.swing.JTextField jugador2_edad;
+    public com.toedter.calendar.JDateChooser jugador2_fecha;
+    public javax.swing.JTextField jugador2_imagen;
+    public javax.swing.JTextField jugador2_nombre;
+    public javax.swing.JButton jugador2_seleccion;
+    public javax.swing.JTextField jugador3_apellido;
+    public javax.swing.JTextField jugador3_cedula;
+    public javax.swing.JTextField jugador3_edad;
+    public com.toedter.calendar.JDateChooser jugador3_fecha;
+    public javax.swing.JTextField jugador3_imagen;
+    public javax.swing.JTextField jugador3_nombre;
+    public javax.swing.JButton jugador3_seleccion;
+    public javax.swing.JTextField jugador4_apellido;
+    public javax.swing.JTextField jugador4_cedula;
+    public javax.swing.JTextField jugador4_edad;
+    public com.toedter.calendar.JDateChooser jugador4_fecha;
+    public javax.swing.JTextField jugador4_imagen;
+    public javax.swing.JTextField jugador4_nombre;
+    public javax.swing.JButton jugador4_seleccion;
+    public javax.swing.JLabel lblfoto;
+    public javax.swing.JLabel lblfoto1;
+    public javax.swing.JLabel lblfoto2;
+    public javax.swing.JLabel lblfoto3;
+    public javax.swing.JButton registrarse;
     // End of variables declaration//GEN-END:variables
 }

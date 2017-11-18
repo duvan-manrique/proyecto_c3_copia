@@ -11,6 +11,10 @@ package proyecto__c3;
  */
 public class NewJFrame extends javax.swing.JFrame {
   Registro registro;
+  Registrados registrados;
+  Historial historial;
+  Mejores mejores;
+  tablero_juego tablero;
     /**
      * Creates new form NewJFrame
      */
@@ -21,6 +25,26 @@ public class NewJFrame extends javax.swing.JFrame {
         registro =new Registro();
         registro.recibir(this);
         registro.setVisible(false);
+        
+        this.setResizable(false); 
+        registrados =new Registrados();
+        registrados.recibir(this);
+        registrados.setVisible(false);
+        
+        this.setResizable(false); 
+        historial =new Historial();
+        historial.recibir(this);
+        historial.setVisible(false);
+        
+        this.setResizable(false); 
+        mejores =new Mejores();
+        mejores.recibir(this);
+        mejores.setVisible(false);
+        
+        this.setResizable(false); 
+        tablero =new tablero_juego();
+       
+        tablero.setVisible(false);
     }
 
     /**
@@ -32,18 +56,16 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(790, 640));
-        setMinimumSize(new java.awt.Dimension(790, 640));
+        setMaximumSize(new java.awt.Dimension(251, 251));
+        setMinimumSize(new java.awt.Dimension(251, 251));
         getContentPane().setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/1200px-Tablero_de_parqués.svg.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 600, 600);
 
         jButton1.setText("registrarse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,14 +74,71 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(620, 20, 120, 23);
+        jButton1.setBounds(50, 60, 140, 23);
+
+        jButton2.setText("tabla de registrados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(50, 100, 140, 23);
+
+        jButton3.setText(" historial de juego");
+        jButton3.setToolTipText("");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(50, 140, 140, 23);
+
+        jButton4.setText("mejores puestos");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(50, 180, 140, 23);
+
+        jButton5.setText("jugar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(90, 20, 57, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         registro.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        registrados.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        historial.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        mejores.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        tablero.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,6 +178,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
 }

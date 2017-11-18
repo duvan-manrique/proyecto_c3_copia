@@ -16,7 +16,7 @@ public class Evento {
      private  Timestamp fecharegistro;//variable fecha de registro
      private   Date   fechanacimiento;//fecha de nacimiento
 
-    public Evento(int id,  String cedula, String nombre, String apellido,String edad, Date fechanacimiento,Timestamp fecharegistro,  String puntaje, String nomimagen) {
+    public Evento(int id,  String cedula, String nombre, String apellido,String edad, Date fechanacimiento,Timestamp fecharegistro, String nomimagen ,  String puntaje) {
             //llenado de datos en las variables        
         this.id = id;
         this.cedula = cedula;
@@ -25,14 +25,13 @@ public class Evento {
         this.edad = edad;
         this.fechanacimiento = fechanacimiento;
         this.fecharegistro = fecharegistro;
-        this.puntaje = puntaje;
         this.nomimagen = nomimagen;
-     
+        this.puntaje = puntaje;
     }
 
-    public static Evento crear(int id,  String cedula, String nombre, String apellido,String edad, Date fechanacimiento,Timestamp fecharegistro,  String puntaje, String nomimagen) {
+    public static Evento crear(int id,  String cedula, String nombre, String apellido,String edad, Date fechanacimiento,Timestamp fecharegistro, String nomimagen,  String puntaje) {
         //retorna un objeto de tipo evento 
-        return new Evento( id,   cedula,  nombre,  apellido, edad,  fechanacimiento, fecharegistro,   puntaje,  nomimagen);
+        return new Evento( id,cedula,nombre,apellido,edad,fechanacimiento,fecharegistro,nomimagen,puntaje);
     }
 //inicio de metodos de encapsulacion
 

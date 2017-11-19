@@ -14,19 +14,25 @@ public class tablero_juego extends javax.swing.JFrame {
     Movimientos_azules azul;
     Movimientos_verdes verde;
     Movimientos_amarillas amarillo;
+    int turno=1;
+    int j_rojo=0,j_azul=0,j_verde=0,j_amarillo=0;
     public tablero_juego() {
         initComponents();    
         iniciar();
     }
     void iniciar(){
-      roja= new Movimientos_rojas(f_roja,0);
-      roja.start();
-      azul= new Movimientos_azules(f_azul,0);
-      azul.start();
-      verde = new Movimientos_verdes(f_verde,0);
-      verde.start();
-      amarillo = new Movimientos_amarillas(f_amarilla,0);
-      amarillo.start();
+      mover();
+      btnTirar.setEnabled(false);
+      
+       generanumero objDado=new generanumero();
+        int dados1 = objDado.calculanumero();
+        imagenes1 objImag1 = new imagenes1();
+        lblDado1.setIcon(objImag1.gifDado1(dados1));
+
+        generanumero objDado2=new generanumero();
+        int dados2 = objDado.calculanumero();
+        imagenes2 objImag2 = new imagenes2();
+        lblDado2.setIcon(objImag2.gifDado2(dados2));
     }
 
     /**
@@ -42,10 +48,23 @@ public class tablero_juego extends javax.swing.JFrame {
         f_roja = new javax.swing.JLabel();
         f_amarilla = new javax.swing.JLabel();
         f_verde = new javax.swing.JLabel();
+        btnTirar = new javax.swing.JButton();
+        btnJugar = new javax.swing.JButton();
+        resul = new javax.swing.JLabel();
+        lblD1 = new javax.swing.JLabel();
+        lblD2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblDado2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblDado1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         panel_juego1 = new proyecto__c3.Panel_juego();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(837, 640));
+        setMaximumSize(new java.awt.Dimension(1015, 640));
+        setMinimumSize(new java.awt.Dimension(1015, 640));
+        setPreferredSize(new java.awt.Dimension(1015, 640));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         f_azul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/peque5.png"))); // NOI18N
@@ -83,6 +102,88 @@ public class tablero_juego extends javax.swing.JFrame {
         });
         getContentPane().add(f_verde);
         f_verde.setBounds(480, 200, 20, 20);
+
+        btnTirar.setText("Tirar");
+        btnTirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTirarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTirar);
+        btnTirar.setBounds(880, 210, 55, 23);
+
+        btnJugar.setText("Jugar");
+        btnJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnJugar);
+        btnJugar.setBounds(700, 220, 59, 23);
+
+        resul.setText("la suma es : 0");
+        getContentPane().add(resul);
+        resul.setBounds(770, 200, 100, 14);
+
+        lblD1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD1.setText("0");
+        getContentPane().add(lblD1);
+        lblD1.setBounds(700, 170, 60, 14);
+
+        lblD2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblD2.setText("0");
+        getContentPane().add(lblD2);
+        lblD2.setBounds(870, 170, 40, 14);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("dado2"));
+        jPanel2.setMinimumSize(new java.awt.Dimension(110, 110));
+        jPanel2.setPreferredSize(new java.awt.Dimension(110, 110));
+
+        lblDado2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblDado2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblDado2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 9, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(830, 50, 110, 110);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("dado1"));
+
+        lblDado1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblDado1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblDado1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(680, 50, 110, 110);
+
+        jLabel1.setText("dadoS");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(770, 30, 40, 14);
         getContentPane().add(panel_juego1);
         panel_juego1.setBounds(0, 0, 600, 600);
 
@@ -105,6 +206,681 @@ public class tablero_juego extends javax.swing.JFrame {
 
     }//GEN-LAST:event_f_azulMouseDragged
 
+    private void btnTirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTirarActionPerformed
+        // TODO add your handling code here:
+        generanumero objDado=new generanumero();
+        imagenesResul objImag1=new imagenesResul();
+        int num1= objDado.calculanumero();
+        lblD1.setText(""+num1);
+        lblDado1.setIcon(objImag1.Imaen(num1));
+
+        generanumero objDado2=new generanumero();
+        imagenesResul objImag2=new imagenesResul();
+        int num2= objDado.calculanumero();
+        lblD2.setText(""+num2);
+        lblDado2.setIcon(objImag1.Imaen(num2));
+        int r= num1+num2;
+        resul.setText(" la suma es : "+r);
+        btnTirar.setEnabled(false);
+        System.out.println("***("+num1+")("+num2+"***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);
+            juego(num1,num2);
+            mover();    
+        System.out.println("***("+num1+")("+num2+"***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
+        
+        
+        
+    }//GEN-LAST:event_btnTirarActionPerformed
+
+    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
+        // TODO add your handling code here:
+        generanumero objDado=new generanumero();
+        int dados1 = objDado.calculanumero();
+        imagenes1 objImag1 = new imagenes1();
+        lblDado1.setIcon(objImag1.gifDado1(dados1));
+
+        generanumero objDado2=new generanumero();
+        int dados2 = objDado.calculanumero();
+        imagenes2 objImag2 = new imagenes2();
+        lblDado2.setIcon(objImag2.gifDado2(dados2));
+        btnTirar.setEnabled(true);
+    }//GEN-LAST:event_btnJugarActionPerformed
+ void juego (int dado1,int dado2){
+     switch(turno){
+         case 1:
+             movimientos(dado1,dado2);
+             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
+                 turno ++;
+             }
+             
+         break;    
+         case 2:
+             movimientos(dado1,dado2);
+             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
+                 turno ++;
+             }
+         break;
+         case 3:
+             movimientos(dado1,dado2);
+            if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
+                 turno ++;
+             }
+         break;
+         case 4:
+             movimientos(dado1,dado2);
+             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
+                 turno =1;
+             }
+         break;
+     }
+ }
+ void mover(){
+     roja= new Movimientos_rojas(f_roja,j_rojo);
+      roja.start();
+      azul= new Movimientos_azules(f_azul,j_azul);
+      azul.start();
+      verde = new Movimientos_verdes(f_verde,j_verde);
+      verde.start();
+      amarillo = new Movimientos_amarillas(f_amarilla,j_amarillo);
+      amarillo.start();
+ }
+ void movimientos(int dado1,int dado2){
+     int suma=dado1+dado2; 
+     if(dado1==dado2){
+         switch(turno){
+                    case 1:
+                        if(j_rojo==0){
+                            j_rojo=1;
+                        }
+                        
+                    break;    
+                    case 2:
+                        if(j_verde==0){
+                            j_verde=1;
+                        }
+                        
+                    break;
+                    case 3:
+                        if(j_azul==0){
+                            j_azul=1;
+                        }
+                        
+                    break;
+                    case 4:
+                       if(j_amarillo==0){
+                            j_amarillo=1;
+                        }
+                        
+                    break;
+                }
+     }
+     switch(suma){
+         case 2:
+                switch(turno){
+                    case 1:
+                        switch (j_rojo) {
+                            case 0:
+                                j_rojo=1;
+                                break;
+                            case 1:
+                                j_rojo=3;
+                                break;
+                            case 3:
+                                j_rojo=5;
+                                break;
+                            case 4:
+                                j_rojo=6;
+                                break;
+                            case 6:
+                                j_rojo=8;
+                                break;
+                            case 7:
+                                j_rojo=9;
+                                break;
+                            case 9:
+                                j_rojo=11;
+                                break;
+                            case 10:
+                                j_rojo=12;
+                                break;
+                            default:
+                                break;
+                            }
+                        
+                    break;        
+                    case 2:
+                            switch (j_verde) {
+                                case 0:
+                                    j_verde=1;
+                                    break;
+                                case 1:
+                                    j_verde=3;
+                                    break;
+                                case 3:
+                                    j_verde=5;
+                                    break;
+                                case 4:
+                                    j_verde=6;
+                                    break;
+                                case 6:
+                                    j_verde=8;
+                                    break;
+                                case 7:
+                                    j_verde=9;
+                                    break;
+                                case 9:
+                                    j_verde=11;
+                                    break;
+                                case 10:
+                                    j_verde=12;
+                                    break;
+                                default:
+                                    break;
+                            }
+                    break;
+                    case 3:
+                                switch (j_azul) {
+                                    case 0:
+                                        j_azul=1;
+                                        break;
+                                    case 1:
+                                        j_azul=3;
+                                        break;
+                                    case 3:
+                                        j_azul=5;
+                                        break;
+                                    case 4:
+                                        j_azul=6;
+                                        break;
+                                    case 6:
+                                        j_azul=8;
+                                        break;
+                                    case 7:
+                                        j_azul=9;
+                                        break;
+                                    case 9:
+                                        j_azul=11;
+                                        break;
+                                    case 10:
+                                        j_azul=12;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                       
+                    break;
+                    case 4:
+                            switch (j_amarillo) {
+                                case 0:
+                                    j_amarillo=1;
+                                    break;
+                                case 1:
+                                    j_amarillo=3;
+                                    break;
+                                case 3:
+                                    j_amarillo=5;
+                                    break;
+                                case 4:
+                                    j_amarillo=6;
+                                    break;
+                                case 6:
+                                    j_amarillo=8;
+                                    break;
+                                case 7:
+                                    j_amarillo=9;
+                                    break;
+                                case 9:
+                                    j_amarillo=11;
+                                    break;
+                                case 10:
+                                    j_amarillo=12;
+                                    break;
+                                default:
+                                    break;
+                            }
+                      
+                    break;
+                }
+                         
+         break;    
+         case 12:
+                  switch(turno){
+                    case 1:
+                        switch (j_rojo) {
+                            case 0:
+                                j_rojo=1;
+                                break;
+                            case 1:
+                                j_rojo=3;
+                                break;
+                            case 3:
+                                j_rojo=5;
+                                break;
+                            case 4:
+                                j_rojo=6;
+                                break;
+                            case 6:
+                                j_rojo=8;
+                                break;
+                            case 7:
+                                j_rojo=9;
+                                break;
+                            case 9:
+                                j_rojo=11;
+                                break;
+                            case 10:
+                                j_rojo=12;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                    break;        
+                    case 2:
+                        switch (j_verde) {
+                            case 0:
+                                j_verde=1;
+                                break;
+                            case 1:
+                                j_verde=3;
+                                break;
+                            case 3:
+                                j_verde=5;
+                                break;
+                            case 4:
+                                j_verde=6;
+                                break;
+                            case 6:
+                                j_verde=8;
+                                break;
+                            case 7:
+                                j_verde=9;
+                                break;
+                            case 9:
+                                j_verde=11;
+                                break;
+                            case 10:
+                                j_verde=12;
+                                break;
+                            default:
+                                break;
+                        }
+                    break;
+                    case 3:
+                        switch (j_azul) {
+                            case 0:
+                                j_azul=1;
+                                break;
+                            case 1:
+                                j_azul=3;
+                                break;
+                            case 3:
+                                j_azul=5;
+                                break;
+                            case 4:
+                                j_azul=6;
+                                break;
+                            case 6:
+                                j_azul=8;
+                                break;
+                            case 7:
+                                j_azul=9;
+                                break;
+                            case 9:
+                                j_azul=11;
+                                break;
+                            case 10:
+                                j_azul=12;
+                                break;
+                            default:
+                                break;
+                        }
+                       
+                    break;
+                    case 4:
+                            switch (j_amarillo) {
+                                case 0:
+                                    j_amarillo=1;
+                                    break;
+                                case 1:
+                                    j_amarillo=3;
+                                    break;
+                                case 3:
+                                    j_amarillo=5;
+                                    break;
+                                case 4:
+                                    j_amarillo=6;
+                                    break;
+                                case 6:
+                                    j_amarillo=8;
+                                    break;
+                                case 7:
+                                    j_amarillo=9;
+                                    break;
+                                case 9:
+                                    j_amarillo=11;
+                                    break;
+                                case 10:
+                                    j_amarillo=12;
+                                    break;
+                                default:
+                                    break;
+                            }
+                      
+                    break;
+                }
+             
+         break;
+         case 8:
+            switch(turno){
+                    case 1:
+                        if(j_rojo==12){
+                            j_rojo=13;
+                        }
+                        
+                    break;    
+                    case 2:
+                        if(j_verde==12){
+                            j_verde=13;
+                        }
+                        
+                    break;
+                    case 3:
+                        if(j_azul==12){
+                            j_azul=13;
+                        }
+                        
+                    break;
+                    case 4:
+                       if(j_amarillo==12){
+                            j_amarillo=13;
+                        }
+                        
+                    break;
+                }
+                          
+             
+         break;
+         case 7:
+                switch(turno){
+                    case 1:
+                    switch (j_rojo) {
+                        case 1:
+                            j_rojo=2;
+                            break;
+                        case 4:
+                            j_rojo=5;
+                            break;
+                        case 7:
+                            j_rojo=8;
+                            break;
+                        case 10:
+                            j_rojo=11;
+                            break;
+                        default:
+                            break;
+                    }
+                        
+                        
+                    break;        
+                    case 2:
+                        switch (j_verde) {
+                            case 1:
+                                j_verde=2;
+                                break;
+                            case 4:
+                                j_verde=5;
+                                break;
+                            case 7:
+                                j_verde=8;
+                                break;
+                            case 10:
+                                j_verde=11;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                    break;
+                    case 3:
+                        switch (j_azul) {
+                            case 1:
+                                j_azul=2;
+                                break;
+                            case 4:
+                                j_azul=5;
+                                break;
+                            case 7:
+                                j_azul=8;
+                                break;
+                            case 10:
+                                j_azul=11;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                    break;
+                    case 4:
+                        switch (j_amarillo) {
+                            case 1:
+                                j_amarillo=2;
+                                break;
+                            case 4:
+                                j_amarillo=5;
+                                break;
+                            case 7:
+                                j_amarillo=8;
+                                break;
+                            case 10:
+                                j_amarillo=11;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                    break;
+                }
+             
+             
+         break;
+         case 5:
+                 switch(turno){
+                    case 1:
+                        switch (j_rojo) {
+                            case 2:
+                                j_rojo=3;
+                                break;
+                            case 3:
+                                j_rojo=4;
+                                break;
+                            case 5:
+                                j_rojo=6;
+                                break;
+                            case 6:
+                                j_rojo=7;
+                                break;
+                            case 8:
+                                j_rojo=9;
+                                break;
+                            case 9:
+                                j_rojo=10;
+                                break;
+                            case 11:
+                                j_rojo=12;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                        
+                    break;        
+                    case 2:
+                        switch (j_verde) {
+                            case 2:
+                                j_verde=3;
+                                break;
+                            case 3:
+                                j_verde=4;
+                                break;
+                            case 5:
+                                j_verde=6;
+                                break;
+                            case 6:
+                                j_verde=7;
+                                break;
+                            case 8:
+                                j_verde=9;
+                                break;
+                            case 9:
+                                j_verde=10;
+                                break;
+                            case 11:
+                                j_verde=12;
+                                break;
+                            default:
+                                break;
+                        }
+                       
+                        
+                    break;
+                    case 3:
+                        switch (j_azul) {
+                            case 2:
+                                j_azul=3;
+                                break;
+                            case 3:
+                                j_azul=4;
+                                break;
+                            case 5:
+                                j_azul=6;
+                                break;
+                            case 6:
+                                j_azul=7;
+                                break;
+                            case 8:
+                                j_azul=9;
+                                break;
+                            case 9:
+                                j_azul=10;
+                                break;
+                            case 11:
+                                j_azul=12;
+                                break;
+                            default:
+                                break;
+                        }
+                       
+                        
+                    break;
+                    case 4:
+                        switch (j_amarillo) {
+                            case 2:
+                                j_amarillo=3;
+                                break;
+                            case 3:
+                                j_amarillo=4;
+                                break;
+                            case 5:
+                                j_amarillo=6;
+                                break;
+                            case 6:
+                                j_amarillo=7;
+                                break;
+                            case 8:
+                                j_amarillo=9;
+                                break;
+                            case 9:
+                                j_amarillo=10;
+                                break;
+                            case 11:
+                                j_amarillo=12;
+                                break;
+                            default:
+                                break;
+                        }
+                       
+                        
+                    break;
+                }
+             
+             
+         break;
+         case 10 :
+            switch(turno){
+                    case 1:
+                        switch (j_rojo) {
+                            case 2:
+                                j_rojo=4;
+                                break;
+                            case 5:
+                                j_rojo=7;
+                                break;
+                            case 8:
+                                j_rojo=10;
+                                break;
+                            default:
+                                break;
+                        }
+                       
+                        
+                        
+                    break;        
+                    case 2:
+                        switch (j_verde) {
+                            case 2:
+                                j_verde=4;
+                                break;
+                            case 5:
+                                j_verde=7;
+                                break;
+                            case 8:
+                                j_verde=10;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                        
+                    break;
+                    case 3:
+                        switch (j_azul) {
+                            case 2:
+                                j_azul=4;
+                                break;
+                            case 5:
+                                j_azul=7;
+                                break;
+                            case 8:
+                                j_azul=10;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                        
+                    break;
+                    case 4:
+                        switch (j_amarillo) {
+                            case 2:
+                                j_amarillo=4;
+                                break;
+                            case 5:
+                                j_amarillo=7;
+                                break;
+                            case 8:
+                                j_amarillo=10;
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                        
+                    break;
+                }
+              
+         break;
+     }
+ }
     /**
      * @param args the command line arguments
      */
@@ -141,10 +917,20 @@ public class tablero_juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnJugar;
+    private javax.swing.JButton btnTirar;
     private javax.swing.JLabel f_amarilla;
     private javax.swing.JLabel f_azul;
     private javax.swing.JLabel f_roja;
     private javax.swing.JLabel f_verde;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblD1;
+    private javax.swing.JLabel lblD2;
+    private javax.swing.JLabel lblDado1;
+    private javax.swing.JLabel lblDado2;
     private proyecto__c3.Panel_juego panel_juego1;
+    private javax.swing.JLabel resul;
     // End of variables declaration//GEN-END:variables
 }

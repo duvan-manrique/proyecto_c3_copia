@@ -317,110 +317,126 @@ public class tablero_juego extends javax.swing.JFrame {
          case 2:
                 switch(turno){
                     case 1:
-                        if(j_rojo==0){
-                            j_rojo=1;
-                        }
-                        if(j_rojo==1){
-                            j_rojo=3;
-                        }
-                        if(j_rojo==3){
-                            j_rojo=5;
-                        }
-                        if(j_rojo==4){
-                            j_rojo=6;
-                        }
-                        if(j_rojo==6){
-                            j_rojo=8;
-                        }
-                        if(j_rojo==7){
-                            j_rojo=9;
-                        }
-                        if(j_rojo==9){
-                            j_rojo=11;
-                        }
-                        if(j_rojo==10){
-                            j_rojo=12;
-                        }
+                        switch (j_rojo) {
+                            case 0:
+                                j_rojo=1;
+                                break;
+                            case 1:
+                                j_rojo=3;
+                                break;
+                            case 3:
+                                j_rojo=5;
+                                break;
+                            case 4:
+                                j_rojo=6;
+                                break;
+                            case 6:
+                                j_rojo=8;
+                                break;
+                            case 7:
+                                j_rojo=9;
+                                break;
+                            case 9:
+                                j_rojo=11;
+                                break;
+                            case 10:
+                                j_rojo=12;
+                                break;
+                            default:
+                                break;
+                            }
                         
-                    break;    
+                    break;        
                     case 2:
-                        if(j_verde==0){
-                            j_verde=1;
-                        }
-                        if(j_verde==1){
-                            j_verde=3;
-                        }
-                        if(j_verde==3){
-                            j_verde=5;
-                        }
-                        if(j_verde==4){
-                            j_verde=6;
-                        }
-                        if(j_verde==6){
-                            j_verde=8;
-                        }
-                        if(j_verde==7){
-                            j_verde=9;
-                        }
-                        if(j_verde==9){
-                            j_verde=11;
-                        }
-                        if(j_verde==10){
-                            j_verde=12;
-                        }
+                            switch (j_verde) {
+                                case 0:
+                                    j_verde=1;
+                                    break;
+                                case 1:
+                                    j_verde=3;
+                                    break;
+                                case 3:
+                                    j_verde=5;
+                                    break;
+                                case 4:
+                                    j_verde=6;
+                                    break;
+                                case 6:
+                                    j_verde=8;
+                                    break;
+                                case 7:
+                                    j_verde=9;
+                                    break;
+                                case 9:
+                                    j_verde=11;
+                                    break;
+                                case 10:
+                                    j_verde=12;
+                                    break;
+                                default:
+                                    break;
+                            }
                     break;
                     case 3:
-                        if(j_azul==0){
-                            j_azul=1;
-                        }
-                        if(j_azul==1){
-                            j_azul=3;
-                        }
-                        if(j_azul==3){
-                            j_azul=5;
-                        }
-                        if(j_azul==4){
-                            j_azul=6;
-                        }
-                        if(j_azul==6){
-                            j_azul=8;
-                        }
-                        if(j_azul==7){
-                            j_azul=9;
-                        }
-                        if(j_azul==9){
-                            j_azul=11;
-                        }
-                        if(j_azul==10){
-                            j_azul=12;
-                        }
+                                switch (j_azul) {
+                                    case 0:
+                                        j_azul=1;
+                                        break;
+                                    case 1:
+                                        j_azul=3;
+                                        break;
+                                    case 3:
+                                        j_azul=5;
+                                        break;
+                                    case 4:
+                                        j_azul=6;
+                                        break;
+                                    case 6:
+                                        j_azul=8;
+                                        break;
+                                    case 7:
+                                        j_azul=9;
+                                        break;
+                                    case 9:
+                                        j_azul=11;
+                                        break;
+                                    case 10:
+                                        j_azul=12;
+                                        break;
+                                    default:
+                                        break;
+                                }
                        
                     break;
                     case 4:
-                        if(j_amarillo==0){
-                            j_amarillo=1;
-                        }
-                        if(j_amarillo==1){
-                            j_amarillo=3;
-                        }
-                        if(j_amarillo==3){
-                            j_amarillo=5;
-                        }
-                        if(j_amarillo==4){
-                            j_amarillo=6;
-                        }
-                        if(j_amarillo==6){
-                            j_amarillo=8;
-                        }
-                        if(j_amarillo==7){
-                            j_amarillo=9;
-                        }
-                        if(j_amarillo==9){
-                            j_amarillo=11;
-                        }
-                        if(j_amarillo==10){
-                            j_amarillo=12;
-                        }
+                            switch (j_amarillo) {
+                                case 0:
+                                    j_amarillo=1;
+                                    break;
+                                case 1:
+                                    j_amarillo=3;
+                                    break;
+                                case 3:
+                                    j_amarillo=5;
+                                    break;
+                                case 4:
+                                    j_amarillo=6;
+                                    break;
+                                case 6:
+                                    j_amarillo=8;
+                                    break;
+                                case 7:
+                                    j_amarillo=9;
+                                    break;
+                                case 9:
+                                    j_amarillo=11;
+                                    break;
+                                case 10:
+                                    j_amarillo=12;
+                                    break;
+                                default:
+                                    break;
+                            }
                       
                     break;
                 }
@@ -429,110 +445,126 @@ public class tablero_juego extends javax.swing.JFrame {
          case 12:
                   switch(turno){
                     case 1:
-                        if(j_rojo==0){
-                            j_rojo=1;
-                        }
-                        if(j_rojo==1){
-                            j_rojo=3;
-                        }
-                        if(j_rojo==3){
-                            j_rojo=5;
-                        }
-                        if(j_rojo==4){
-                            j_rojo=6;
-                        }
-                        if(j_rojo==6){
-                            j_rojo=8;
-                        }
-                        if(j_rojo==7){
-                            j_rojo=9;
-                        }
-                        if(j_rojo==9){
-                            j_rojo=11;
-                        }
-                        if(j_rojo==10){
-                            j_rojo=12;
+                        switch (j_rojo) {
+                            case 0:
+                                j_rojo=1;
+                                break;
+                            case 1:
+                                j_rojo=3;
+                                break;
+                            case 3:
+                                j_rojo=5;
+                                break;
+                            case 4:
+                                j_rojo=6;
+                                break;
+                            case 6:
+                                j_rojo=8;
+                                break;
+                            case 7:
+                                j_rojo=9;
+                                break;
+                            case 9:
+                                j_rojo=11;
+                                break;
+                            case 10:
+                                j_rojo=12;
+                                break;
+                            default:
+                                break;
                         }
                         
-                    break;    
+                    break;        
                     case 2:
-                        if(j_verde==0){
-                            j_verde=1;
-                        }
-                        if(j_verde==1){
-                            j_verde=3;
-                        }
-                        if(j_verde==3){
-                            j_verde=5;
-                        }
-                        if(j_verde==4){
-                            j_verde=6;
-                        }
-                        if(j_verde==6){
-                            j_verde=8;
-                        }
-                        if(j_verde==7){
-                            j_verde=9;
-                        }
-                        if(j_verde==9){
-                            j_verde=11;
-                        }
-                        if(j_verde==10){
-                            j_verde=12;
+                        switch (j_verde) {
+                            case 0:
+                                j_verde=1;
+                                break;
+                            case 1:
+                                j_verde=3;
+                                break;
+                            case 3:
+                                j_verde=5;
+                                break;
+                            case 4:
+                                j_verde=6;
+                                break;
+                            case 6:
+                                j_verde=8;
+                                break;
+                            case 7:
+                                j_verde=9;
+                                break;
+                            case 9:
+                                j_verde=11;
+                                break;
+                            case 10:
+                                j_verde=12;
+                                break;
+                            default:
+                                break;
                         }
                     break;
                     case 3:
-                        if(j_azul==0){
-                            j_azul=1;
-                        }
-                        if(j_azul==1){
-                            j_azul=3;
-                        }
-                        if(j_azul==3){
-                            j_azul=5;
-                        }
-                        if(j_azul==4){
-                            j_azul=6;
-                        }
-                        if(j_azul==6){
-                            j_azul=8;
-                        }
-                        if(j_azul==7){
-                            j_azul=9;
-                        }
-                        if(j_azul==9){
-                            j_azul=11;
-                        }
-                        if(j_azul==10){
-                            j_azul=12;
+                        switch (j_azul) {
+                            case 0:
+                                j_azul=1;
+                                break;
+                            case 1:
+                                j_azul=3;
+                                break;
+                            case 3:
+                                j_azul=5;
+                                break;
+                            case 4:
+                                j_azul=6;
+                                break;
+                            case 6:
+                                j_azul=8;
+                                break;
+                            case 7:
+                                j_azul=9;
+                                break;
+                            case 9:
+                                j_azul=11;
+                                break;
+                            case 10:
+                                j_azul=12;
+                                break;
+                            default:
+                                break;
                         }
                        
                     break;
                     case 4:
-                        if(j_amarillo==0){
-                            j_amarillo=1;
-                        }
-                        if(j_amarillo==1){
-                            j_amarillo=3;
-                        }
-                        if(j_amarillo==3){
-                            j_amarillo=5;
-                        }
-                        if(j_amarillo==4){
-                            j_amarillo=6;
-                        }
-                        if(j_amarillo==6){
-                            j_amarillo=8;
-                        }
-                        if(j_amarillo==7){
-                            j_amarillo=9;
-                        }
-                        if(j_amarillo==9){
-                            j_amarillo=11;
-                        }
-                        if(j_amarillo==10){
-                            j_amarillo=12;
-                        }
+                            switch (j_amarillo) {
+                                case 0:
+                                    j_amarillo=1;
+                                    break;
+                                case 1:
+                                    j_amarillo=3;
+                                    break;
+                                case 3:
+                                    j_amarillo=5;
+                                    break;
+                                case 4:
+                                    j_amarillo=6;
+                                    break;
+                                case 6:
+                                    j_amarillo=8;
+                                    break;
+                                case 7:
+                                    j_amarillo=9;
+                                    break;
+                                case 9:
+                                    j_amarillo=11;
+                                    break;
+                                case 10:
+                                    j_amarillo=12;
+                                    break;
+                                default:
+                                    break;
+                            }
                       
                     break;
                 }
@@ -571,63 +603,79 @@ public class tablero_juego extends javax.swing.JFrame {
          case 7:
                 switch(turno){
                     case 1:
-                        if(j_rojo==1){
+                    switch (j_rojo) {
+                        case 1:
                             j_rojo=2;
-                        }
-                        if(j_rojo==4){
+                            break;
+                        case 4:
                             j_rojo=5;
-                        }
-                        if(j_rojo==7){
+                            break;
+                        case 7:
                             j_rojo=8;
-                        }
-                        if(j_rojo==10){
+                            break;
+                        case 10:
                             j_rojo=11;
-                        }
+                            break;
+                        default:
+                            break;
+                    }
                         
                         
-                    break;    
+                    break;        
                     case 2:
-                        if(j_verde==1){
-                            j_verde=2;
-                        }
-                        if(j_verde==4){
-                            j_verde=5;
-                        }
-                        if(j_verde==7){
-                            j_verde=8;
-                        }
-                        if(j_verde==10){
-                            j_verde=11;
+                        switch (j_verde) {
+                            case 1:
+                                j_verde=2;
+                                break;
+                            case 4:
+                                j_verde=5;
+                                break;
+                            case 7:
+                                j_verde=8;
+                                break;
+                            case 10:
+                                j_verde=11;
+                                break;
+                            default:
+                                break;
                         }
                         
                     break;
                     case 3:
-                        if(j_azul==1){
-                            j_azul=2;
-                        }
-                        if(j_azul==4){
-                            j_azul=5;
-                        }
-                        if(j_azul==7){
-                            j_azul=8;
-                        }
-                        if(j_azul==10){
-                            j_azul=11;
+                        switch (j_azul) {
+                            case 1:
+                                j_azul=2;
+                                break;
+                            case 4:
+                                j_azul=5;
+                                break;
+                            case 7:
+                                j_azul=8;
+                                break;
+                            case 10:
+                                j_azul=11;
+                                break;
+                            default:
+                                break;
                         }
                         
                     break;
                     case 4:
-                       if(j_amarillo==1){
-                            j_amarillo=2;
-                        }
-                        if(j_amarillo==4){
-                            j_amarillo=5;
-                        }
-                        if(j_amarillo==7){
-                            j_amarillo=8;
-                        }
-                        if(j_amarillo==10){
-                            j_amarillo=11;
+                        switch (j_amarillo) {
+                            case 1:
+                                j_amarillo=2;
+                                break;
+                            case 4:
+                                j_amarillo=5;
+                                break;
+                            case 7:
+                                j_amarillo=8;
+                                break;
+                            case 10:
+                                j_amarillo=11;
+                                break;
+                            default:
+                                break;
                         }
                         
                     break;
@@ -638,101 +686,117 @@ public class tablero_juego extends javax.swing.JFrame {
          case 5:
                  switch(turno){
                     case 1:
-                        if(j_rojo==2){
-                            j_rojo=3;
-                        }
-                        if(j_rojo==3){
-                            j_rojo=4;
-                        }
-                        if(j_rojo==5){
-                            j_rojo=6;
-                        }
-                        if(j_rojo==6){
-                            j_rojo=7;
-                        }
-                        if(j_rojo==8){
-                            j_rojo=9;
-                        }
-                        if(j_rojo==9){
-                            j_rojo=10;
-                        }
-                        if(j_rojo==11){
-                            j_rojo=12;
+                        switch (j_rojo) {
+                            case 2:
+                                j_rojo=3;
+                                break;
+                            case 3:
+                                j_rojo=4;
+                                break;
+                            case 5:
+                                j_rojo=6;
+                                break;
+                            case 6:
+                                j_rojo=7;
+                                break;
+                            case 8:
+                                j_rojo=9;
+                                break;
+                            case 9:
+                                j_rojo=10;
+                                break;
+                            case 11:
+                                j_rojo=12;
+                                break;
+                            default:
+                                break;
                         }
                         
                         
-                    break;    
+                    break;        
                     case 2:
-                        if(j_verde==2){
-                            j_verde=3;
-                        }
-                        if(j_verde==3){
-                            j_verde=4;
-                        }
-                        if(j_verde==5){
-                            j_verde=6;
-                        }
-                        if(j_verde==6){
-                            j_verde=7;
-                        }
-                        if(j_verde==8){
-                            j_verde=9;
-                        }
-                        if(j_verde==9){
-                            j_verde=10;
-                        }
-                        if(j_verde==11){
-                            j_verde=12;
+                        switch (j_verde) {
+                            case 2:
+                                j_verde=3;
+                                break;
+                            case 3:
+                                j_verde=4;
+                                break;
+                            case 5:
+                                j_verde=6;
+                                break;
+                            case 6:
+                                j_verde=7;
+                                break;
+                            case 8:
+                                j_verde=9;
+                                break;
+                            case 9:
+                                j_verde=10;
+                                break;
+                            case 11:
+                                j_verde=12;
+                                break;
+                            default:
+                                break;
                         }
                        
                         
                     break;
                     case 3:
-                        if(j_azul==2){
-                            j_azul=3;
-                        }
-                        if(j_azul==3){
-                            j_azul=4;
-                        }
-                        if(j_azul==5){
-                            j_azul=6;
-                        }
-                        if(j_azul==6){
-                            j_azul=7;
-                        }
-                        if(j_azul==8){
-                            j_azul=9;
-                        }
-                        if(j_azul==9){
-                            j_azul=10;
-                        }
-                        if(j_azul==11){
-                            j_azul=12;
+                        switch (j_azul) {
+                            case 2:
+                                j_azul=3;
+                                break;
+                            case 3:
+                                j_azul=4;
+                                break;
+                            case 5:
+                                j_azul=6;
+                                break;
+                            case 6:
+                                j_azul=7;
+                                break;
+                            case 8:
+                                j_azul=9;
+                                break;
+                            case 9:
+                                j_azul=10;
+                                break;
+                            case 11:
+                                j_azul=12;
+                                break;
+                            default:
+                                break;
                         }
                        
                         
                     break;
                     case 4:
-                       if(j_amarillo==2){
-                            j_amarillo=3;
-                        }
-                        if(j_amarillo==3){
-                            j_amarillo=4;
-                        }
-                        if(j_amarillo==5){
-                            j_amarillo=6;
-                        }
-                        if(j_amarillo==6){
-                            j_amarillo=7;
-                        }
-                        if(j_amarillo==8){
-                            j_amarillo=9;
-                        }
-                        if(j_amarillo==9){
-                            j_amarillo=10;
-                        }
-                        if(j_amarillo==11){
-                            j_amarillo=12;
+                        switch (j_amarillo) {
+                            case 2:
+                                j_amarillo=3;
+                                break;
+                            case 3:
+                                j_amarillo=4;
+                                break;
+                            case 5:
+                                j_amarillo=6;
+                                break;
+                            case 6:
+                                j_amarillo=7;
+                                break;
+                            case 8:
+                                j_amarillo=9;
+                                break;
+                            case 9:
+                                j_amarillo=10;
+                                break;
+                            case 11:
+                                j_amarillo=12;
+                                break;
+                            default:
+                                break;
                         }
                        
                         
@@ -744,54 +808,70 @@ public class tablero_juego extends javax.swing.JFrame {
          case 10 :
             switch(turno){
                     case 1:
-                        if(j_rojo==2){
-                            j_rojo=4;
-                        }
-                        if(j_rojo==5){
-                            j_rojo=7;
-                        }
-                        if(j_rojo==8){
-                            j_rojo=10;
+                        switch (j_rojo) {
+                            case 2:
+                                j_rojo=4;
+                                break;
+                            case 5:
+                                j_rojo=7;
+                                break;
+                            case 8:
+                                j_rojo=10;
+                                break;
+                            default:
+                                break;
                         }
                        
                         
                         
-                    break;    
+                    break;        
                     case 2:
-                        if(j_verde==2){
-                            j_verde=4;
-                        }
-                        if(j_verde==5){
-                            j_verde=7;
-                        }
-                        if(j_verde==8){
-                            j_verde=10;
+                        switch (j_verde) {
+                            case 2:
+                                j_verde=4;
+                                break;
+                            case 5:
+                                j_verde=7;
+                                break;
+                            case 8:
+                                j_verde=10;
+                                break;
+                            default:
+                                break;
                         }
                         
                         
                     break;
                     case 3:
-                       if(j_azul==2){
-                            j_azul=4;
-                        }
-                        if(j_azul==5){
-                            j_azul=7;
-                        }
-                        if(j_azul==8){
-                            j_azul=10;
+                        switch (j_azul) {
+                            case 2:
+                                j_azul=4;
+                                break;
+                            case 5:
+                                j_azul=7;
+                                break;
+                            case 8:
+                                j_azul=10;
+                                break;
+                            default:
+                                break;
                         }
                         
                         
                     break;
                     case 4:
-                       if(j_amarillo==2){
-                            j_amarillo=4;
-                        }
-                        if(j_amarillo==5){
-                            j_amarillo=7;
-                        }
-                        if(j_amarillo==8){
-                            j_amarillo=10;
+                        switch (j_amarillo) {
+                            case 2:
+                                j_amarillo=4;
+                                break;
+                            case 5:
+                                j_amarillo=7;
+                                break;
+                            case 8:
+                                j_amarillo=10;
+                                break;
+                            default:
+                                break;
                         }
                         
                         

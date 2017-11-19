@@ -77,7 +77,7 @@ public class Repositorio1 {
             ResultSet resultado = sentenciaP.executeQuery();
 
             while (resultado.next()) {
-                eventos.add(Evento.crear(resultado.getInt("id"), resultado.getString("nom_evento"), java.sql.Date.valueOf(resultado.getString("fecha_even")), resultado.getString("h_inicio"), resultado.getString("h_final"), resultado.getString("descripcion") ,resultado.getString("recreador"),resultado.getTimestamp("fecha_seguriti1")));
+               // eventos.add(Evento.crear(resultado.getInt("id"), resultado.getString("nom_evento"), java.sql.Date.valueOf(resultado.getString("fecha_even")), resultado.getString("h_inicio"), resultado.getString("h_final"), resultado.getString("descripcion") ,resultado.getString("recreador"),resultado.getTimestamp("fecha_seguriti1")));
             }
 
             sentenciaP.close();

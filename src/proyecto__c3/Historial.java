@@ -5,18 +5,23 @@
  */
 package proyecto__c3;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import proyecto__c3.Registro;
 /**
  *
  * @author LENOVO
  */
 public class Historial extends javax.swing.JFrame {
     javax.swing.JFrame padre;
-
+ArrayList<Evento> lista_eventos_validar;
+private DefaultTableModel table_model_eventos;
     /**
      * Creates new form Historial
      */
     public Historial() {
         initComponents();
+        configComponents();
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
     }
@@ -24,7 +29,7 @@ public class Historial extends javax.swing.JFrame {
         this.padre=padre1;
         
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,4 +154,46 @@ public class Historial extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+ private void configComponents() {
+        DefaultTableModel table_model_eventos = new DefaultTableModel();
+        table_model_eventos.addColumn("id");
+        table_model_eventos.addColumn("cedula");
+        table_model_eventos.addColumn("nombre");
+        table_model_eventos.addColumn("apellido");
+        table_model_eventos.addColumn("edad");
+        table_model_eventos.addColumn("fecha de nacimiento");
+        table_model_eventos.addColumn("fecha de registro");
+        table_model_eventos.addColumn("nombre de la imagen");
+        table_model_eventos.addColumn("puntaje");
+
+        jTable1.setModel(table_model_eventos);
+      setTableModel1(table_model_eventos);
+        refreshTableModel();
+      
+    }
+     public void setTableModel1(DefaultTableModel table_model_eventos){
+        this.table_model_eventos = table_model_eventos;//recibe el modelo de la tabla de eventos
+    }
+   public void refreshTableModel()
+    {
+        //metodo que actualisa la tabla despues de ser agregaado un evento
+        ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+        lista_eventos_validar=lista_eventos;
+        while (table_model_eventos.getRowCount() > 0) {
+            table_model_eventos.removeRow(0);
+        }
+        
+        for(Evento e: lista_eventos)
+        {
+            String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()};
+            
+            table_model_eventos.addRow(data);
+        }
+       
+    }
+
+
+
+
+
 }

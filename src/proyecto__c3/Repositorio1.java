@@ -17,7 +17,7 @@ public class Repositorio1 {
     public static void crear (Evento evento) {//envia datos a la vase de datos
         try {
             
-            String query = "INSERT INTO eventos ( cedula,nombre,apellido,edad,fechanacimiento,fecharegistro,nomimagen,puntaje) VALUES (?, ?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO parques ( cedula,nombre,apellido,edad,fechanacimiento,fecharegistro,nomimagen,puntaje) VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             sentenciaP.setString(1, evento.getCedula());
             sentenciaP.setString(2, evento.getNombre());
@@ -35,6 +35,7 @@ public class Repositorio1 {
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            System.out.println("asdfghj");
         }
 
     }
@@ -44,7 +45,7 @@ public class Repositorio1 {
 
     public static Evento obtener(int id) {//metodo que obtiene la informacion de la base de datos
         try {
-            String query = "SELECT * FROM eventos WHERE id = ?;";
+            String query = "SELECT * FROM parques WHERE id = ?;";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             sentenciaP.setString(1, Integer.toString(id));
 
@@ -72,12 +73,12 @@ public class Repositorio1 {
        ArrayList<Evento> eventos = new ArrayList<Evento>();
 
         try {
-            String query = "SELECT * FROM eventos;";
+            String query = "SELECT * FROM parques;";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             ResultSet resultado = sentenciaP.executeQuery();
 
             while (resultado.next()) {
-               // eventos.add(Evento.crear(resultado.getInt("id"), resultado.getString("nom_evento"), java.sql.Date.valueOf(resultado.getString("fecha_even")), resultado.getString("h_inicio"), resultado.getString("h_final"), resultado.getString("descripcion") ,resultado.getString("recreador"),resultado.getTimestamp("fecha_seguriti1")));
+                eventos.add(Evento.crear(resultado.getInt("id"), resultado.getString("cedula"),  resultado.getString("nombre"), resultado.getString("apellido"),resultado.getString("edad"),java.sql.Date.valueOf(resultado.getString("fechanacimiento")),resultado.getTimestamp("fecharegistro"),resultado.getString("nomimagen"), resultado.getString("puntaje")));
             }
 
             sentenciaP.close();

@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -26,6 +27,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Registro extends javax.swing.JFrame {
 javax.swing.JFrame padre;
+ private Evento evento;
+  private  LocalDateTime ahora= LocalDateTime.now();
+    private Timestamp ahora1=Timestamp.valueOf(ahora);
     /**
      * Creates new form Registro
      */
@@ -490,6 +494,19 @@ javax.swing.JFrame padre;
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
+        
+        evento = Evento.crear(0, jugador1_cedula.getText(), jugador1_nombre.getText(),  jugador1_apellido.getText(), jugador1_edad.getText(), jugador1_fecha.getDate(), ahora1 ,jugador1_imagen.getText(),"0");
+                    Repositorio1.crear(evento);
+                   // resetevento();
+        //            JOptionPane.showMessageDialog(this, "evento creado satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
+        evento = Evento.crear(0, jugador2_cedula.getText(), jugador2_nombre.getText(),  jugador2_apellido.getText(), jugador2_edad.getText(), jugador2_fecha.getDate(), ahora1 ,jugador2_imagen.getText(),"0");
+                    Repositorio1.crear(evento);
+        evento = Evento.crear(0, jugador3_cedula.getText(), jugador3_nombre.getText(),  jugador3_apellido.getText(), jugador3_edad.getText(), jugador3_fecha.getDate(), ahora1 ,jugador3_imagen.getText(),"0");
+                    Repositorio1.crear(evento);
+        evento = Evento.crear(0, jugador4_cedula.getText(), jugador4_nombre.getText(),  jugador4_apellido.getText(), jugador4_edad.getText(), jugador4_fecha.getDate(), ahora1 ,jugador4_imagen.getText(),"0");
+                    Repositorio1.crear(evento);            
+        
+        
         jugador1_apellido.setText("");
         jugador1_cedula.setText("");
         jugador1_edad.setText("");

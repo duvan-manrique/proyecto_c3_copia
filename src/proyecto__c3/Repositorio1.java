@@ -17,7 +17,7 @@ public class Repositorio1 {
     public static void crear (Evento evento) {//envia datos a la vase de datos
         try {
             
-            String query = "INSERT INTO parques ( cedula,nombre,apellido,edad,fechanacimiento,fecharegistro,nomimagen,puntaje) VALUES (?, ?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO parques ( cedula,nombre,apellido,edad,fechanacimiento,fecharegistro,nomimagen,puntaje) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             sentenciaP.setString(1, evento.getCedula());
             sentenciaP.setString(2, evento.getNombre());

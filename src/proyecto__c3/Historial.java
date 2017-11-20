@@ -7,7 +7,6 @@ package proyecto__c3;
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import proyecto__c3.Registro;
 /**
  *
  * @author LENOVO

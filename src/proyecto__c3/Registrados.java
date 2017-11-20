@@ -5,17 +5,25 @@
  */
 package proyecto__c3;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author LENOVO
  */
 public class Registrados extends javax.swing.JFrame {
 javax.swing.JFrame padre;
+ArrayList<Evento> lista_eventos_validar;
+private DefaultTableModel table_model_eventos1;
+private DefaultTableModel table_model_eventos2;
+private DefaultTableModel table_model_eventos3;
     /**
      * Creates new form Registrados
      */
     public Registrados() {
         initComponents();
+        configComponents();
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
     }
@@ -195,4 +203,106 @@ javax.swing.JFrame padre;
     private javax.swing.JTable tabla_juvenil;
     private javax.swing.JTable tabla_mayores;
     // End of variables declaration//GEN-END:variables
+private void configComponents() {
+        DefaultTableModel table_model_eventos_1 = new DefaultTableModel();
+        table_model_eventos_1.addColumn("id");
+        table_model_eventos_1.addColumn("cedula");
+        table_model_eventos_1.addColumn("nombre");
+        table_model_eventos_1.addColumn("apellido");
+        table_model_eventos_1.addColumn("edad");
+        table_model_eventos_1.addColumn("fecha de nacimiento");
+        table_model_eventos_1.addColumn("fecha de registro");
+        table_model_eventos_1.addColumn("nombre de la imagen");
+        table_model_eventos_1.addColumn("puntaje");
+        
+        DefaultTableModel table_model_eventos_2 = new DefaultTableModel();
+        table_model_eventos_2.addColumn("id");
+        table_model_eventos_2.addColumn("cedula");
+        table_model_eventos_2.addColumn("nombre");
+        table_model_eventos_2.addColumn("apellido");
+        table_model_eventos_2.addColumn("edad");
+        table_model_eventos_2.addColumn("fecha de nacimiento");
+        table_model_eventos_2.addColumn("fecha de registro");
+        table_model_eventos_2.addColumn("nombre de la imagen");
+        table_model_eventos_2.addColumn("puntaje");
+        
+        DefaultTableModel table_model_eventos_3 = new DefaultTableModel();
+        table_model_eventos_3.addColumn("id");
+        table_model_eventos_3.addColumn("cedula");
+        table_model_eventos_3.addColumn("nombre");
+        table_model_eventos_3.addColumn("apellido");
+        table_model_eventos_3.addColumn("edad");
+        table_model_eventos_3.addColumn("fecha de nacimiento");
+        table_model_eventos_3.addColumn("fecha de registro");
+        table_model_eventos_3.addColumn("nombre de la imagen");
+        table_model_eventos_3.addColumn("puntaje");
+
+        tabla_infantil.setModel(table_model_eventos_1);
+        tabla_juvenil.setModel(table_model_eventos_2);
+        tabla_mayores.setModel(table_model_eventos_3);
+        setTableModel1(table_model_eventos_1);
+        setTableModel2(table_model_eventos_2);
+        setTableModel3(table_model_eventos_3);
+        refreshTableModel();
+      
+    }
+     public void setTableModel1(DefaultTableModel table_model_eventos){
+        this.table_model_eventos1 = table_model_eventos;//recibe el modelo de la tabla de eventos
+    }
+    public void setTableModel2(DefaultTableModel table_model_eventos){
+        this.table_model_eventos2 = table_model_eventos;//recibe el modelo de la tabla de eventos
+    }
+    public void setTableModel3(DefaultTableModel table_model_eventos){
+        this.table_model_eventos3 = table_model_eventos;//recibe el modelo de la tabla de eventos
+    }
+   public void refreshTableModel()
+    {
+        //metodo que actualisa la tabla despues de ser agregaado un evento
+        ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+        lista_eventos_validar=lista_eventos;
+       // ArrayList<Evento> infantil;
+        //ArrayList<Evento> juvenil;
+        //ArrayList<Evento> mayor;
+        while (table_model_eventos1.getRowCount() > 0) {
+            table_model_eventos1.removeRow(0);
+        }
+        while (table_model_eventos2.getRowCount() > 0) {
+            table_model_eventos2.removeRow(0);
+        }
+        while (table_model_eventos3.getRowCount() > 0) {
+            table_model_eventos3.removeRow(0);
+        }
+        
+        for(Evento e: lista_eventos)
+        {
+            if((Integer.parseInt(e.getEdad()))<=15){
+               String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()}; 
+               table_model_eventos1.addRow(data);
+            }else if((Integer.parseInt(e.getEdad()))>15&&(Integer.parseInt(e.getEdad()))<=24){
+                String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()}; 
+               table_model_eventos2.addRow(data);
+            }else if((Integer.parseInt(e.getEdad()))>24&&(Integer.parseInt(e.getEdad()))<=50){
+                String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()}; 
+               table_model_eventos3.addRow(data);
+            }
+                
+            
+            
+            
+            
+        }
+        
+        
+        /*for(Evento e: lista_eventos)
+        {
+            String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()};
+            
+            table_model_eventos.addRow(data);
+        }*/
+       
+
+
+
+
+}
 }

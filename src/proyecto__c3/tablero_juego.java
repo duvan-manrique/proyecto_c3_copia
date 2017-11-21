@@ -5,6 +5,8 @@
  */
 package proyecto__c3;
 
+import java.awt.Color;
+
 /**
  *
  * @author rojas
@@ -59,6 +61,9 @@ public class tablero_juego extends javax.swing.JFrame {
         lblDado1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         panel_juego1 = new proyecto__c3.Panel_juego();
+        turno_color = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1015, 640));
@@ -110,7 +115,7 @@ public class tablero_juego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTirar);
-        btnTirar.setBounds(880, 210, 55, 23);
+        btnTirar.setBounds(840, 220, 55, 23);
 
         btnJugar.setText("Jugar");
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,11 +124,11 @@ public class tablero_juego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnJugar);
-        btnJugar.setBounds(700, 220, 59, 23);
+        btnJugar.setBounds(750, 220, 59, 23);
 
         resul.setText("la suma es : 0");
         getContentPane().add(resul);
-        resul.setBounds(770, 200, 100, 14);
+        resul.setBounds(780, 190, 100, 14);
 
         lblD1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblD1.setText("0");
@@ -181,11 +186,26 @@ public class tablero_juego extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(680, 50, 110, 110);
 
-        jLabel1.setText("dadoS");
+        jLabel1.setText("DADOS");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(770, 30, 40, 14);
+        jLabel1.setBounds(790, 30, 40, 14);
         getContentPane().add(panel_juego1);
         panel_juego1.setBounds(0, 0, 600, 600);
+
+        turno_color.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        turno_color.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        turno_color.setText("turno");
+        getContentPane().add(turno_color);
+        turno_color.setBounds(730, 290, 160, 50);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Versión beta en esta podemos encontrar un\njuego clásico de parqués con unas \ncaracterísticas únicas consta de 1 sola ficha\ncada jugador y el  ganador será aquel que \nllegue de primeras al final del recorrido y \ncada ficha es inmune no será afectada por \nninguna otra ficha cada jugador tendrá 2 \ntiros de dados para salir de la cárcel");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(626, 346, 370, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,11 +242,46 @@ public class tablero_juego extends javax.swing.JFrame {
         int r= num1+num2;
         resul.setText(" la suma es : "+r);
         btnTirar.setEnabled(false);
-        System.out.println("***("+num1+")("+num2+"***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);
+        turno_color.setText(turno+"");
+        switch(turno){
+            case 1:
+                turno_color.setForeground(Color.red);
+            break; 
+            
+             case 2:
+                turno_color.setForeground(Color.GREEN);
+            break; 
+            
+             case 3:
+                turno_color.setForeground(Color.BLUE);
+            break; 
+             case 4:
+                turno_color.setForeground(Color.YELLOW);
+            break; 
+        }
+        
+        System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);
             juego(num1,num2);
             mover();    
-        System.out.println("***("+num1+")("+num2+"***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
+        System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
         
+        turno_color.setText(turno+"");
+        switch(turno){
+            case 1:
+                turno_color.setForeground(Color.red);
+            break; 
+            
+             case 2:
+                turno_color.setForeground(Color.GREEN);
+            break; 
+            
+             case 3:
+                turno_color.setForeground(Color.BLUE);
+            break; 
+             case 4:
+                turno_color.setForeground(Color.YELLOW);
+            break; 
+        }
         
         
     }//GEN-LAST:event_btnTirarActionPerformed
@@ -244,32 +299,80 @@ public class tablero_juego extends javax.swing.JFrame {
         lblDado2.setIcon(objImag2.gifDado2(dados2));
         btnTirar.setEnabled(true);
     }//GEN-LAST:event_btnJugarActionPerformed
- void juego (int dado1,int dado2){
+int sacadas=1;
+void juego (int dado1,int dado2){
+     int aux=0;
+     
      switch(turno){
          case 1:
+             aux=j_rojo;
              movimientos(dado1,dado2);
-             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno ++;
-             }
-             
          break;    
          case 2:
+             aux=j_verde;
              movimientos(dado1,dado2);
-             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno ++;
-             }
+            
          break;
          case 3:
+             aux=j_azul;
              movimientos(dado1,dado2);
-            if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno ++;
-             }
+            
          break;
          case 4:
+             aux=j_amarillo;
              movimientos(dado1,dado2);
-             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno =1;
-             }
+            
+         break;
+     }
+     
+     switch(turno){
+         case 1:
+            if(aux==j_rojo&&j_rojo!=0){
+                turno++;
+                sacadas=1;
+            }else if(j_rojo==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno++;
+            }
+         break;    
+         case 2:
+            if(aux==j_verde&&j_verde!=0){
+                turno++;
+                sacadas=1;
+            }else if(j_verde==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno++;
+            }
+         break;
+         case 3:
+            if(aux==j_azul&&j_azul!=0){
+                turno++;
+                sacadas=1;
+            }else if(j_azul==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno++;
+            }
+         break;
+         case 4:
+           if(aux==j_amarillo&&j_amarillo!=0){
+                turno=1;
+                sacadas=1;
+            }else if(j_amarillo==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno=1;
+            }
          break;
      }
  }
@@ -285,34 +388,7 @@ public class tablero_juego extends javax.swing.JFrame {
  }
  void movimientos(int dado1,int dado2){
      int suma=dado1+dado2; 
-     if(dado1==dado2){
-         switch(turno){
-                    case 1:
-                        if(j_rojo==0){
-                            j_rojo=1;
-                        }
-                        
-                    break;    
-                    case 2:
-                        if(j_verde==0){
-                            j_verde=1;
-                        }
-                        
-                    break;
-                    case 3:
-                        if(j_azul==0){
-                            j_azul=1;
-                        }
-                        
-                    break;
-                    case 4:
-                       if(j_amarillo==0){
-                            j_amarillo=1;
-                        }
-                        
-                    break;
-                }
-     }
+
      switch(suma){
          case 2:
                 switch(turno){
@@ -880,6 +956,34 @@ public class tablero_juego extends javax.swing.JFrame {
               
          break;
      }
+          if(dado1==dado2){
+         switch(turno){
+                    case 1:
+                        if(j_rojo==0){
+                            j_rojo=1;
+                        }
+                        
+                    break;    
+                    case 2:
+                        if(j_verde==0){
+                            j_verde=1;
+                        }
+                        
+                    break;
+                    case 3:
+                        if(j_azul==0){
+                            j_azul=1;
+                        }
+                        
+                    break;
+                    case 4:
+                       if(j_amarillo==0){
+                            j_amarillo=1;
+                        }
+                        
+                    break;
+                }
+     }
  }
     /**
      * @param args the command line arguments
@@ -926,11 +1030,14 @@ public class tablero_juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblD1;
     private javax.swing.JLabel lblD2;
     private javax.swing.JLabel lblDado1;
     private javax.swing.JLabel lblDado2;
     private proyecto__c3.Panel_juego panel_juego1;
     private javax.swing.JLabel resul;
+    private javax.swing.JLabel turno_color;
     // End of variables declaration//GEN-END:variables
 }

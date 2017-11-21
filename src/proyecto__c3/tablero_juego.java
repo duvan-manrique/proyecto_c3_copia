@@ -113,7 +113,7 @@ public class tablero_juego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTirar);
-        btnTirar.setBounds(880, 210, 55, 23);
+        btnTirar.setBounds(840, 220, 55, 23);
 
         btnJugar.setText("Jugar");
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,11 +122,11 @@ public class tablero_juego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnJugar);
-        btnJugar.setBounds(700, 220, 59, 23);
+        btnJugar.setBounds(750, 220, 59, 23);
 
         resul.setText("la suma es : 0");
         getContentPane().add(resul);
-        resul.setBounds(770, 200, 100, 14);
+        resul.setBounds(780, 190, 100, 14);
 
         lblD1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblD1.setText("0");
@@ -184,12 +184,13 @@ public class tablero_juego extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(680, 50, 110, 110);
 
-        jLabel1.setText("dadoS");
+        jLabel1.setText("DADOS");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(770, 30, 40, 14);
+        jLabel1.setBounds(790, 30, 40, 14);
         getContentPane().add(panel_juego1);
         panel_juego1.setBounds(0, 0, 600, 600);
 
+        turno_color.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         turno_color.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         turno_color.setText("turno");
         getContentPane().add(turno_color);
@@ -230,11 +231,46 @@ public class tablero_juego extends javax.swing.JFrame {
         int r= num1+num2;
         resul.setText(" la suma es : "+r);
         btnTirar.setEnabled(false);
+        turno_color.setText(turno+"");
+        switch(turno){
+            case 1:
+                turno_color.setForeground(Color.red);
+            break; 
+            
+             case 2:
+                turno_color.setForeground(Color.GREEN);
+            break; 
+            
+             case 3:
+                turno_color.setForeground(Color.BLUE);
+            break; 
+             case 4:
+                turno_color.setForeground(Color.YELLOW);
+            break; 
+        }
+        
         System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);
             juego(num1,num2);
             mover();    
         System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
+        
         turno_color.setText(turno+"");
+        switch(turno){
+            case 1:
+                turno_color.setForeground(Color.red);
+            break; 
+            
+             case 2:
+                turno_color.setForeground(Color.GREEN);
+            break; 
+            
+             case 3:
+                turno_color.setForeground(Color.BLUE);
+            break; 
+             case 4:
+                turno_color.setForeground(Color.YELLOW);
+            break; 
+        }
         
         
     }//GEN-LAST:event_btnTirarActionPerformed

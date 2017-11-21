@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author LENOVO
  */
 public class Mejores extends javax.swing.JFrame {
-javax.swing.JFrame padre;
+
 ArrayList<Evento> lista_eventos_validar;
 private DefaultTableModel table_model_eventos1;
 private DefaultTableModel table_model_eventos2;
@@ -21,15 +21,11 @@ private DefaultTableModel table_model_eventos3;
     /**
      * Creates new form mejores
      */
-    public Mejores() {
+    public Mejores() {//constructor de la clase
         initComponents();
         configComponents();
           this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
-    }
-    public void recibir (javax.swing.JFrame padre1){
-        this.padre=padre1;
-        
     }
 
     /**
@@ -152,7 +148,7 @@ private DefaultTableModel table_model_eventos3;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-      
+      //funcion que hace invisible el jframe
         this.setVisible(false);
 
     }//GEN-LAST:event_cancelarActionPerformed
@@ -207,7 +203,7 @@ private DefaultTableModel table_model_eventos3;
     private javax.swing.JTable tabla_juvenil;
     private javax.swing.JTable tabla_mayores;
     // End of variables declaration//GEN-END:variables
-private void configComponents() {
+private void configComponents() {//metodo utilizado para creal y llamar a las tablas modelos
         DefaultTableModel table_model_eventos_1 = new DefaultTableModel();
         table_model_eventos_1.addColumn("id");
         table_model_eventos_1.addColumn("cedula");
@@ -311,17 +307,6 @@ private void configComponents() {
         }
         x--;
         }
-        
-        /*for(Evento e: lista_eventos)
-        {
-            String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()};
-            
-            table_model_eventos.addRow(data);
-        }*/
-       
-
-
-
 
 }
 }

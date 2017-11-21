@@ -18,11 +18,11 @@ public class tablero_juego extends javax.swing.JFrame {
     Movimientos_amarillas amarillo;
     int turno=1;
     int j_rojo=0,j_azul=0,j_verde=0,j_amarillo=0;
-    public tablero_juego() {
+    public tablero_juego() {//constructor de la clase 
         initComponents();    
         iniciar();
     }
-    void iniciar(){
+    void iniciar(){// inicializa los hilos usados y los componentes de las fichas 
       mover();
       btnTirar.setEnabled(false);
       
@@ -228,6 +228,7 @@ public class tablero_juego extends javax.swing.JFrame {
 
     private void btnTirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTirarActionPerformed
         // TODO add your handling code here:
+        // boton echo para determinar un valor dee los numeros y que hace que llave a los movimientos deseados 
         generanumero objDado=new generanumero();
         imagenesResul objImag1=new imagenesResul();
         int num1= objDado.calculanumero();
@@ -288,6 +289,7 @@ public class tablero_juego extends javax.swing.JFrame {
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         // TODO add your handling code here:
+        //metodo que hace que los dados giren
         generanumero objDado=new generanumero();
         int dados1 = objDado.calculanumero();
         imagenes1 objImag1 = new imagenes1();
@@ -301,6 +303,7 @@ public class tablero_juego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnJugarActionPerformed
 int sacadas=1;
 void juego (int dado1,int dado2){
+    //metodo que determina el lugar a donde se va a mer la ficha correspondiente
      int aux=0;
      
      switch(turno){
@@ -376,7 +379,7 @@ void juego (int dado1,int dado2){
          break;
      }
  }
- void mover(){
+ void mover(){//inicia los ilos y le manda la posision que debe tomar y lo grafica
      roja= new Movimientos_rojas(f_roja,j_rojo);
       roja.start();
       azul= new Movimientos_azules(f_azul,j_azul);
@@ -386,7 +389,7 @@ void juego (int dado1,int dado2){
       amarillo = new Movimientos_amarillas(f_amarilla,j_amarillo);
       amarillo.start();
  }
- void movimientos(int dado1,int dado2){
+ void movimientos(int dado1,int dado2){//detenermina los moviientos  egun el nueo de los dados
      int suma=dado1+dado2; 
 
      switch(suma){

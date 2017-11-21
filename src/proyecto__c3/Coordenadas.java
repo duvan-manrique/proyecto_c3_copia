@@ -9,13 +9,14 @@ package proyecto__c3;
  *
  * @author rojas
  */
-public class Coordenadas {
+public class Coordenadas {//clase contenedora de los atributos usados
     private int x,y;
     public Coordenadas(int x1, int y1){
         this.x=x1;
         this.y=y1;
     }
 
+    //inicio de metoodos de encapsulamiento
     public int getX() {
         return x;
     }

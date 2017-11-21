@@ -12,21 +12,17 @@ import javax.swing.table.DefaultTableModel;
  * @author LENOVO
  */
 public class Historial extends javax.swing.JFrame {
-    javax.swing.JFrame padre;
+    
 ArrayList<Evento> lista_eventos_validar;
 private DefaultTableModel table_model_eventos;
     /**
      * Creates new form Historial
      */
-    public Historial() {
+    public Historial() {//contructor de la clase
         initComponents();
         configComponents();
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
-    }
-     public void recibir (javax.swing.JFrame padre1){
-        this.padre=padre1;
-        
     }
    
     /**
@@ -101,13 +97,13 @@ private DefaultTableModel table_model_eventos;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-
+//metodo que hace no visible a la ventana
         this.setVisible(false);
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void cancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar1ActionPerformed
      this.setVisible(false);
-
+//metodo que hace in visible el Jframe
     }//GEN-LAST:event_cancelar1ActionPerformed
 
     /**
@@ -153,7 +149,7 @@ private DefaultTableModel table_model_eventos;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
- private void configComponents() {
+ private void configComponents() {//crea la tabla modelo y llama a los metodo de refrescar la tabla
         DefaultTableModel table_model_eventos = new DefaultTableModel();
         table_model_eventos.addColumn("id");
         table_model_eventos.addColumn("cedula");

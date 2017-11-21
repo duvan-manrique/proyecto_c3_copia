@@ -23,22 +23,22 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false); 
         registro =new Registro();
-        registro.recibir(this);
+        //registro.recibir(this);
         registro.setVisible(false);
         
         this.setResizable(false); 
         registrados =new Registrados();
-        registrados.recibir(this);
+        //registrados.recibir(this);
         registrados.setVisible(false);
         
         this.setResizable(false); 
         historial =new Historial();
-        historial.recibir(this);
+        //historial.recibir(this);
         historial.setVisible(false);
         
         this.setResizable(false); 
         mejores =new Mejores();
-        mejores.recibir(this);
+        //mejores.recibir(this);
         mejores.setVisible(false);
         
         this.setResizable(false); 

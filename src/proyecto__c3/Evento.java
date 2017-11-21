@@ -4,7 +4,7 @@ package proyecto__c3;
 import java.sql.Timestamp;
 import java.util.Date;
 //formato de varibles de un evento
-public class Evento {
+public class Evento {//clase contenedora de los atributos del registro 
 	//variables
     private int id = 0;
     private String  cedula,

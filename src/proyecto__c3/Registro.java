@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -508,6 +509,8 @@ javax.swing.JFrame padre;
         evento = Evento.crear(0, jugador4_cedula.getText(), jugador4_nombre.getText(),  jugador4_apellido.getText(), jugador4_edad.getText(), jugador4_fecha.getDate(), ahora1 ,jugador4_imagen.getText(),"0");
                     Repositorio1.crear(evento);            
         
+        proyecto__c3.tablero_juego.nombres(jugador1_nombre.getText(), jugador2_nombre.getText(), jugador3_nombre.getText(),jugador4_nombre.getText(),jugador1_cedula.getText(), jugador2_cedula.getText(), jugador3_cedula.getText(),jugador4_cedula.getText());
+                    
         
         jugador1_apellido.setText("");
         jugador1_cedula.setText("");
@@ -807,6 +810,15 @@ javax.swing.JFrame padre;
             return true;
         }
         
+        ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+        for(Evento e: lista_eventos)
+        {
+            if(e.getCedula().equals(this.jugador1_cedula.getText().trim())){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida ya existente jugador1!");
+                return true;
+            }
+        }
+        
          int iedad = Integer.parseInt(this.jugador1_edad.getText().trim());
       
         
@@ -863,6 +875,15 @@ javax.swing.JFrame padre;
             JOptionPane.showMessageDialog(null, "La cedula no es valida deben ser 10 digitos jugador2!");
             return true;
         }
+        ArrayList<Evento> lista_eventos1 = Repositorio1.obtenerTodos();
+        for(Evento e: lista_eventos1)
+        {
+            if(e.getCedula().equals(this.jugador2_cedula.getText().trim())){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida ya existente jugador1!");
+                return true;
+            }
+        }
+        
         
          int iedad3 = Integer.parseInt(this.jugador2_edad.getText().trim());
       
@@ -921,6 +942,16 @@ javax.swing.JFrame padre;
             return true;
         }
         
+        ArrayList<Evento> lista_eventos2 = Repositorio1.obtenerTodos();
+        for(Evento e: lista_eventos2)
+        {
+            if(e.getCedula().equals(this.jugador3_cedula.getText().trim())){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida ya existente jugador1!");
+                return true;
+            }
+        }
+        
+        
          int iedadd = Integer.parseInt(this.jugador3_edad.getText().trim());
       
         
@@ -977,6 +1008,17 @@ javax.swing.JFrame padre;
             JOptionPane.showMessageDialog(null, "La cedula no es valida deben ser 10 digitos jugador4!");
             return true;
         }
+        
+        ArrayList<Evento> lista_eventos3 = Repositorio1.obtenerTodos();
+        for(Evento e: lista_eventos3)
+        {
+            if(e.getCedula().equals(this.jugador4_cedula.getText().trim())){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida ya existente jugador1!");
+                return true;
+            }
+        }
+        
+        
         
          int iedadj = Integer.parseInt(this.jugador4_edad.getText().trim());
       

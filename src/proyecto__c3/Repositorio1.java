@@ -41,6 +41,32 @@ public class Repositorio1 {
     }
 
  
+    public static void editar (Evento persona) {
+        try {
+            //cedula,nombre,apellido,edad,fechanacimiento,fecharegistro,nomimagen,puntaje
+            String query = "UPDATE parques SET cedula = ?, nombre = ?, apellido = ?, edad = ?, fechanacimiento = ?, fecharegistro = ?, nomimagen = ?, puntaje = ? WHERE id = ?;";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            sentenciaP.setString(1, persona.getCedula());
+            sentenciaP.setString(2, persona.getNombre());
+            sentenciaP.setString(3, persona.getApellido());
+            sentenciaP.setString(4, persona.getEdad());
+            
+            fecha_1 =new java.sql.Date(persona.getFechanacimiento().getTime());
+            sentenciaP.setDate(5, fecha_1);
+            
+            sentenciaP.setTimestamp(6, persona.getFecharegistro());
+            sentenciaP.setString(7, persona.getNomimagen());
+            sentenciaP.setString(8, persona.getPuntaje());
+            sentenciaP.setString(9, Integer.toString(persona.getId()));
+
+            sentenciaP.executeUpdate();
+            sentenciaP.close();
+            database.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     
 
     public static Evento obtener(int id) {//metodo que obtiene la informacion de la base de datos

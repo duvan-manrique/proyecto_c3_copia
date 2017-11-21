@@ -6,6 +6,8 @@
 package proyecto__c3;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,11 +19,24 @@ public class tablero_juego extends javax.swing.JFrame {
     Movimientos_verdes verde;
     Movimientos_amarillas amarillo;
     int turno=1;
-    int j_rojo=0,j_azul=0,j_verde=0,j_amarillo=0;
+    int j_rojo=12,j_azul=0,j_verde=0,j_amarillo=0;
+   static String n_1="",n_2="",n_3="",n_4="";
+   static String c_1="",c_2="",c_3="",c_4="";
     public tablero_juego() {//constructor de la clase 
         initComponents();    
         iniciar();
     }
+public static void nombres(String n1,String n2,String n3,String n4,String c1,String c2,String c3,String c4){
+      n_1=n1;
+      n_2=n2;
+      n_3=n3;
+      n_4=n4;
+      c_1=c1;
+      c_2=c2;
+      c_3=c3;
+      c_4=c4;
+  }
+  
     void iniciar(){// inicializa los hilos usados y los componentes de las fichas 
       mover();
       btnTirar.setEnabled(false);
@@ -267,20 +282,26 @@ public class tablero_juego extends javax.swing.JFrame {
         System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
         
         turno_color.setText(turno+"");
+        
         switch(turno){
             case 1:
                 turno_color.setForeground(Color.red);
+                JOptionPane.showMessageDialog(null, "el siguiente jugador es!"+turno+n_1); 
+        
             break; 
             
              case 2:
                 turno_color.setForeground(Color.GREEN);
+                JOptionPane.showMessageDialog(null, "el siguiente jugador es!"+turno+n_2);
             break; 
             
              case 3:
                 turno_color.setForeground(Color.BLUE);
+                JOptionPane.showMessageDialog(null, "el siguiente jugador es!"+turno+n_3);
             break; 
              case 4:
                 turno_color.setForeground(Color.YELLOW);
+                JOptionPane.showMessageDialog(null, "el siguiente jugador es!"+turno+n_4);
             break; 
         }
         
@@ -654,24 +675,90 @@ void juego (int dado1,int dado2){
                     case 1:
                         if(j_rojo==12){
                             j_rojo=13;
+                            JOptionPane.showMessageDialog(null, "GANO JUGADOR 1 rojo!");
+                            j_verde=0;
+                            j_azul=0;
+                            j_amarillo=0;
+                        btnJugar.setEnabled(false);
+                            btnTirar.setEnabled(false);
+                           
+                            ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+                            for(Evento e: lista_eventos)
+                                {
+                                    if(e.getCedula().equals(c_1)){
+                                        int puntaje=((Integer.parseInt(e.getPuntaje()))+1);
+                                        e.setPuntaje(Integer.toString(puntaje));
+                                        Repositorio1.editar(e);
+                                    }
+                            }    
                         }
                         
                     break;    
                     case 2:
                         if(j_verde==12){
                             j_verde=13;
+                            
+                            JOptionPane.showMessageDialog(null, "GANO JUGADOR 2 verde!");
+                            j_rojo=0;
+                            j_azul=0;
+                            j_amarillo=0;
+                            btnJugar.setEnabled(false);
+                            btnTirar.setEnabled(false);
+                            
+                            ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+                            for(Evento e: lista_eventos)
+                                {
+                                    if(e.getCedula().equals(c_2)){
+
+                                        //editar
+                                    }
+                            }    
+                        
+                            
                         }
                         
                     break;
                     case 3:
                         if(j_azul==12){
                             j_azul=13;
+                            
+                            
+                            JOptionPane.showMessageDialog(null, "GANO JUGADOR 3 azul!");
+                            j_verde=0;
+                            j_rojo=0;
+                            j_amarillo=0;
+                        btnJugar.setEnabled(false);
+                            btnTirar.setEnabled(false);
+                            ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+                            for(Evento e: lista_eventos)
+                                {
+                                    if(e.getCedula().equals(c_3)){
+
+                                        //editar
+                                    }
+                            }
                         }
                         
                     break;
                     case 4:
                        if(j_amarillo==12){
                             j_amarillo=13;
+                            
+                            
+                            JOptionPane.showMessageDialog(null, "GANO JUGADOR 4 amarillo!");
+                            j_verde=0;
+                            j_azul=0;
+                            j_rojo=0;
+                            btnJugar.setEnabled(false);
+                            btnTirar.setEnabled(false);
+                            ArrayList<Evento> lista_eventos = Repositorio1.obtenerTodos();
+                            for(Evento e: lista_eventos)
+                                {
+                                    if(e.getCedula().equals(c_4)){
+
+                                        //editar
+                                    }
+                            }
                         }
                         
                     break;

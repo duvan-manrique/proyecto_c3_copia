@@ -5,6 +5,8 @@
  */
 package proyecto__c3;
 
+import java.awt.Color;
+
 /**
  *
  * @author rojas
@@ -59,6 +61,7 @@ public class tablero_juego extends javax.swing.JFrame {
         lblDado1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         panel_juego1 = new proyecto__c3.Panel_juego();
+        turno_color = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1015, 640));
@@ -187,6 +190,11 @@ public class tablero_juego extends javax.swing.JFrame {
         getContentPane().add(panel_juego1);
         panel_juego1.setBounds(0, 0, 600, 600);
 
+        turno_color.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        turno_color.setText("turno");
+        getContentPane().add(turno_color);
+        turno_color.setBounds(730, 290, 160, 50);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -222,11 +230,11 @@ public class tablero_juego extends javax.swing.JFrame {
         int r= num1+num2;
         resul.setText(" la suma es : "+r);
         btnTirar.setEnabled(false);
-        System.out.println("***("+num1+")("+num2+"***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);
+        System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);
             juego(num1,num2);
             mover();    
-        System.out.println("***("+num1+")("+num2+"***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
-        
+        System.out.println("***("+num1+")("+num2+")***"+turno+"---"+j_rojo+"---"+j_verde+"---"+j_azul+"---"+j_amarillo);    
+        turno_color.setText(turno+"");
         
         
     }//GEN-LAST:event_btnTirarActionPerformed
@@ -244,32 +252,80 @@ public class tablero_juego extends javax.swing.JFrame {
         lblDado2.setIcon(objImag2.gifDado2(dados2));
         btnTirar.setEnabled(true);
     }//GEN-LAST:event_btnJugarActionPerformed
- void juego (int dado1,int dado2){
+int sacadas=1;
+void juego (int dado1,int dado2){
+     int aux=0;
+     
      switch(turno){
          case 1:
+             aux=j_rojo;
              movimientos(dado1,dado2);
-             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno ++;
-             }
-             
          break;    
          case 2:
+             aux=j_verde;
              movimientos(dado1,dado2);
-             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno ++;
-             }
+            
          break;
          case 3:
+             aux=j_azul;
              movimientos(dado1,dado2);
-            if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno ++;
-             }
+            
          break;
          case 4:
+             aux=j_amarillo;
              movimientos(dado1,dado2);
-             if((dado1+dado2)==3||(dado1+dado2)==4||(dado1+dado2)==6||(dado1+dado2)==9||(dado1+dado2)==11){
-                 turno =1;
-             }
+            
+         break;
+     }
+     
+     switch(turno){
+         case 1:
+            if(aux==j_rojo&&j_rojo!=0){
+                turno++;
+                sacadas=1;
+            }else if(j_rojo==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno++;
+            }
+         break;    
+         case 2:
+            if(aux==j_verde&&j_verde!=0){
+                turno++;
+                sacadas=1;
+            }else if(j_verde==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno++;
+            }
+         break;
+         case 3:
+            if(aux==j_azul&&j_azul!=0){
+                turno++;
+                sacadas=1;
+            }else if(j_azul==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno++;
+            }
+         break;
+         case 4:
+           if(aux==j_amarillo&&j_amarillo!=0){
+                turno=1;
+                sacadas=1;
+            }else if(j_amarillo==0){
+                sacadas++;
+            }
+            if(sacadas>=3){
+                 sacadas=1;
+                turno=1;
+            }
          break;
      }
  }
@@ -285,34 +341,7 @@ public class tablero_juego extends javax.swing.JFrame {
  }
  void movimientos(int dado1,int dado2){
      int suma=dado1+dado2; 
-     if(dado1==dado2){
-         switch(turno){
-                    case 1:
-                        if(j_rojo==0){
-                            j_rojo=1;
-                        }
-                        
-                    break;    
-                    case 2:
-                        if(j_verde==0){
-                            j_verde=1;
-                        }
-                        
-                    break;
-                    case 3:
-                        if(j_azul==0){
-                            j_azul=1;
-                        }
-                        
-                    break;
-                    case 4:
-                       if(j_amarillo==0){
-                            j_amarillo=1;
-                        }
-                        
-                    break;
-                }
-     }
+
      switch(suma){
          case 2:
                 switch(turno){
@@ -880,6 +909,34 @@ public class tablero_juego extends javax.swing.JFrame {
               
          break;
      }
+          if(dado1==dado2){
+         switch(turno){
+                    case 1:
+                        if(j_rojo==0){
+                            j_rojo=1;
+                        }
+                        
+                    break;    
+                    case 2:
+                        if(j_verde==0){
+                            j_verde=1;
+                        }
+                        
+                    break;
+                    case 3:
+                        if(j_azul==0){
+                            j_azul=1;
+                        }
+                        
+                    break;
+                    case 4:
+                       if(j_amarillo==0){
+                            j_amarillo=1;
+                        }
+                        
+                    break;
+                }
+     }
  }
     /**
      * @param args the command line arguments
@@ -932,5 +989,6 @@ public class tablero_juego extends javax.swing.JFrame {
     private javax.swing.JLabel lblDado2;
     private proyecto__c3.Panel_juego panel_juego1;
     private javax.swing.JLabel resul;
+    private javax.swing.JLabel turno_color;
     // End of variables declaration//GEN-END:variables
 }

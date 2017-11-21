@@ -51,8 +51,6 @@ private DefaultTableModel table_model_eventos3;
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla_mayores = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        lblfoto = new javax.swing.JLabel();
         cancelar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
@@ -66,7 +64,7 @@ private DefaultTableModel table_model_eventos3;
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CATEGORIA INFANTIL");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 160, 160, 20);
+        jLabel2.setBounds(30, 100, 160, 20);
 
         jLabel1.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,13 +87,13 @@ private DefaultTableModel table_model_eventos3;
         jScrollPane1.setViewportView(tabla_infantil);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 180, 669, 94);
+        jScrollPane1.setBounds(20, 120, 669, 94);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CATEGORIA JUVENIL");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 280, 145, 15);
+        jLabel3.setBounds(20, 260, 145, 15);
 
         tabla_juvenil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,7 +109,7 @@ private DefaultTableModel table_model_eventos3;
         jScrollPane2.setViewportView(tabla_juvenil);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(20, 300, 669, 92);
+        jScrollPane2.setBounds(20, 280, 669, 92);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,18 +132,6 @@ private DefaultTableModel table_model_eventos3;
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(20, 420, 669, 100);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("EL MEJOR DE LAS 3  CATEGORIAS");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(210, 120, 225, 15);
-
-        lblfoto.setBackground(new java.awt.Color(204, 0, 0));
-        lblfoto.setForeground(new java.awt.Color(0, 255, 255));
-        lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_c3/imagen/a.jpg"))); // NOI18N
-        getContentPane().add(lblfoto);
-        lblfoto.setBounds(470, 70, 100, 100);
 
         cancelar.setBackground(new java.awt.Color(255, 0, 0));
         cancelar.setForeground(new java.awt.Color(255, 0, 0));
@@ -213,12 +199,10 @@ private DefaultTableModel table_model_eventos3;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JLabel lblfoto;
     private javax.swing.JTable tabla_infantil;
     private javax.swing.JTable tabla_juvenil;
     private javax.swing.JTable tabla_mayores;
@@ -293,26 +277,33 @@ private void configComponents() {
             table_model_eventos3.removeRow(0);
         }
         int x=10;
+        int b=0;
+          int a=0;
+          int c=0;
         while(x>=0){
+        
         for(Evento e: lista_eventos)
         {
             
             if((Integer.parseInt(e.getEdad()))<=15){
-                if((Integer.parseInt(e.getPuntaje()))==x){
+                if(((Integer.parseInt(e.getPuntaje()))==x)&&(b<3)){
                     String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()}; 
                     table_model_eventos1.addRow(data);
-                    
+                    b++;
                 }
                
             }else if((Integer.parseInt(e.getEdad()))>15&&(Integer.parseInt(e.getEdad()))<=24){
-                if((Integer.parseInt(e.getPuntaje()))==x){
+                if((Integer.parseInt(e.getPuntaje()))==x&&a<3){
                 String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()}; 
                table_model_eventos2.addRow(data);
+               a++;
+               
                 }
             }else if((Integer.parseInt(e.getEdad()))>24&&(Integer.parseInt(e.getEdad()))<=50){
-                if((Integer.parseInt(e.getPuntaje()))==x){
+                if((Integer.parseInt(e.getPuntaje()))==x&&c<3){
                 String[] data = {Integer.toString(e.getId()), e.getCedula(),e.getNombre(), e.getApellido(), e.getEdad(),e.getFechanacimiento().toString(), e.getFecharegistro().toString(), e.getNomimagen(), e.getPuntaje()}; 
                table_model_eventos3.addRow(data);
+               c++;
                     }
             }
             System.out.println(e.getPuntaje()+"--"+x);

@@ -313,7 +313,7 @@ javax.swing.JFrame padre;
         jLabel19.setBounds(330, 150, 50, 14);
 
         jugador2_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
-        jugador2_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
+        jugador2_fecha.setMinSelectableDate(new java.util.Date(-94672682000L));
         getContentPane().add(jugador2_fecha);
         jugador2_fecha.setBounds(490, 190, 130, 30);
 
@@ -345,7 +345,7 @@ javax.swing.JFrame padre;
         jLabel23.setBounds(410, 90, 100, 14);
 
         jugador1_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
-        jugador1_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
+        jugador1_fecha.setMinSelectableDate(new java.util.Date(-94672682000L));
         getContentPane().add(jugador1_fecha);
         jugador1_fecha.setBounds(490, 80, 130, 30);
         getContentPane().add(jugador2_imagen);
@@ -383,7 +383,7 @@ javax.swing.JFrame padre;
         jLabel26.setBounds(410, 280, 100, 14);
 
         jugador3_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
-        jugador3_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
+        jugador3_fecha.setMinSelectableDate(new java.util.Date(-94672682000L));
         getContentPane().add(jugador3_fecha);
         jugador3_fecha.setBounds(480, 280, 140, 30);
         getContentPane().add(jugador3_imagen);
@@ -421,7 +421,7 @@ javax.swing.JFrame padre;
         jLabel29.setBounds(410, 390, 100, 14);
 
         jugador4_fecha.setMaxSelectableDate(new java.util.Date(1325397718000L));
-        jugador4_fecha.setMinSelectableDate(new java.util.Date(-1041357482000L));
+        jugador4_fecha.setMinSelectableDate(new java.util.Date(-94672682000L));
         getContentPane().add(jugador4_fecha);
         jugador4_fecha.setBounds(490, 390, 130, 30);
         getContentPane().add(jugador4_imagen);
@@ -494,7 +494,9 @@ javax.swing.JFrame padre;
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
-        
+          if( validar() ){//en el if llamo la funcion que me valida los datos
+            
+        } else {
         evento = Evento.crear(0, jugador1_cedula.getText(), jugador1_nombre.getText(),  jugador1_apellido.getText(), jugador1_edad.getText(), jugador1_fecha.getDate(), ahora1 ,jugador1_imagen.getText(),"0");
                     Repositorio1.crear(evento);
                    // resetevento();
@@ -536,7 +538,7 @@ javax.swing.JFrame padre;
         jugador4_fecha.setCalendar(null);
 
         this.setVisible(false);
-        
+          }
     }//GEN-LAST:event_registrarseActionPerformed
 
     private void jugador1_seleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugador1_seleccionActionPerformed
@@ -719,7 +721,276 @@ javax.swing.JFrame padre;
         
        
     }
-
+  private boolean validar() {//metodo que me valida si hay campos vacion y si son validos dos datos ingresados los string como nombre y apellido deberan iniciar con amyuscula
+       
+   
+      if( jugador1_apellido.getText().isEmpty() ||
+            jugador1_cedula.getText().isEmpty() ||
+            jugador1_edad.getText().isEmpty()  ||
+           // jugador1_fecha.getText().isEmpty() ||
+            jugador1_imagen.getText().isEmpty()||
+            jugador1_nombre.getText().isEmpty() ||
+            jugador1_seleccion.getText().isEmpty() ||
+              
+            jugador2_apellido.getText().isEmpty() ||
+            jugador2_cedula.getText().isEmpty() ||
+            jugador2_edad.getText().isEmpty()  ||
+           // jugador2_fecha.getText().isEmpty() ||
+            jugador2_imagen.getText().isEmpty()||
+            jugador2_nombre.getText().isEmpty() ||
+            jugador2_seleccion.getText().isEmpty() ||
+            
+            jugador3_apellido.getText().isEmpty() ||
+            jugador3_cedula.getText().isEmpty() ||
+            jugador3_edad.getText().isEmpty()  ||
+           // jugador3_fecha.getText().isEmpty() ||
+            jugador3_imagen.getText().isEmpty()||
+            jugador3_nombre.getText().isEmpty() ||
+            jugador3_seleccion.getText().isEmpty() ||
+              
+            jugador4_apellido.getText().isEmpty() ||
+            jugador4_cedula.getText().isEmpty() ||
+            jugador4_edad.getText().isEmpty()  ||
+         //   jugador4_fecha.getText().isEmpty() ||
+            jugador4_imagen.getText().isEmpty()||
+            jugador4_nombre.getText().isEmpty() ||
+            jugador4_seleccion.getText().isEmpty() 
+              ){
+             JOptionPane.showMessageDialog(this, "Por favor diligencie todo el formulario", "Error", JOptionPane.ERROR_MESSAGE);
+                          return true;
+         }else{
+         
+             
+             if (!jugador1_apellido.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Apellido invalido jugador1");
+             JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula!");
+             return true;
+             }
+              if (!jugador1_nombre.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Nombre invalido jugador1!");
+              JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula!");
+             return true;
+             } 
+         
+        try{
+            int iedad = Integer.parseInt(this.jugador1_edad.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La edad no es valida jugador1!");
+                return true;
+            }
+         try{
+            int icedula = Integer.parseInt(this.jugador1_cedula.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida jugador1!");
+                return true;
+            }
+        
+        try{
+            System.out.println(jugador1_fecha.getDate().toString());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "selecione una fecha jugador1!");
+                // la fecha esta valida de que es entre 18 a 90 años  
+                
+                return true;
+            }
+        
+        int icedula = Integer.parseInt(this.jugador1_cedula.getText().trim());
+        int cifras=0;
+        while(icedula!=0){
+            icedula=icedula/10;
+            cifras++;
+        }
+        if(cifras<=10&&cifras>=7){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La cedula no es valida deben ser 10 digitos jugador1!");
+            return true;
+        }
+        
+         int iedad = Integer.parseInt(this.jugador1_edad.getText().trim());
+      
+        
+        if(iedad<=50&&iedad>=5){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La edad no es valida deben ser 10 digitos jugador1!");
+            return true;
+        }
+        ///////////////////////////
+        
+             if (!jugador2_apellido.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Apellido invalido jugador2!");
+             JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula!");
+             return true;
+             }
+              if (!jugador2_nombre.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Nombre invalido jugador2!");
+                JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula!");
+             return true;
+             } 
+         
+        try{
+            int iedadd = Integer.parseInt(this.jugador2_edad.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La edad no es valida jugador2!");
+                return true;
+            }
+         try{
+            int icedulaf = Integer.parseInt(this.jugador2_cedula.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida jugador2!");
+                return true;
+            }
+        
+        try{
+            System.out.println(jugador2_fecha.getDate().toString());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "selecione una fecha jugador2!");
+                // la fecha esta valida de que es entre 18 a 90 años  
+                
+                return true;
+            }
+        
+        int icedulav = Integer.parseInt(this.jugador2_cedula.getText().trim());
+        int cifrass=0;
+        while(icedulav!=0){
+            icedulav=icedulav/10;
+            cifrass++;
+        }
+        if(cifrass<=10&&cifrass>=7){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La cedula no es valida deben ser 10 digitos jugador2!");
+            return true;
+        }
+        
+         int iedad3 = Integer.parseInt(this.jugador2_edad.getText().trim());
+      
+        
+        if(iedad3<=50&&iedad3>=5){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La edad no es valida  jugador2!");
+            return true;
+        }
+        ////////////////////////
+        
+             if (!jugador3_apellido.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Apellido invalido jugador3!");
+             JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula jugador3!");
+             return true;
+             }
+              if (!jugador3_nombre.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Nombre invalido jugador3!");
+              JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula jugador3!");
+             return true;
+             } 
+         
+        try{
+            int iedadg = Integer.parseInt(this.jugador3_edad.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La edad no es valida jugador3!");
+                return true;
+            }
+         try{
+            int icedulag = Integer.parseInt(this.jugador3_cedula.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida jugador3!");
+                return true;
+            }
+        
+        try{
+            System.out.println(jugador3_fecha.getDate().toString());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "selecione una fecha jugador3!");
+                // la fecha esta valida de que es entre 18 a 90 años  
+                
+                return true;
+            }
+        
+        int icedula3 = Integer.parseInt(this.jugador3_cedula.getText().trim());
+        int cifras3=0;
+        while(icedula3!=0){
+            icedula3=icedula3/10;
+            cifras3++;
+        }
+        if(cifras3<=10&&cifras3>=7){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La cedula no es valida deben ser 10 digitos jugador3!");
+            return true;
+        }
+        
+         int iedadd = Integer.parseInt(this.jugador3_edad.getText().trim());
+      
+        
+        if(iedad<=50&&iedad>=5){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La edad no es valida  jugador3!");
+            return true;
+        }
+        ////////////////////////////7
+        
+             if (!jugador4_apellido.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Apellido invalido jugador4!");
+             JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula!");
+             return true;
+             }
+              if (!jugador4_nombre.getText().matches("[A-Z][a-zA-Z]*\\D{3}")){
+             JOptionPane.showMessageDialog(null, "Nombre invalido jugador4!");
+             JOptionPane.showMessageDialog(null, "recuerde que la 1 letra es mayuscula!");
+             return true;
+             } 
+         
+        try{
+            int iedadj = Integer.parseInt(this.jugador4_edad.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La edad no es valida jugador4!");
+                return true;
+            }
+         try{
+            int icedulaj = Integer.parseInt(this.jugador4_cedula.getText().trim());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "La cedula no es valida jugador4!");
+                return true;
+            }
+        
+        try{
+            System.out.println(jugador4_fecha.getDate().toString());
+            }catch(Exception error){
+                JOptionPane.showMessageDialog(null, "selecione una fecha jugador4!");
+                // la fecha esta valida de que es entre 18 a 90 años  
+                
+                return true;
+            }
+        
+        int icedulaj = Integer.parseInt(this.jugador4_cedula.getText().trim());
+        int cifrasj=0;
+        while(icedulaj!=0){
+            icedulaj=icedulaj/10;
+            cifrasj++;
+        }
+        if(cifrasj<=10&&cifrasj>=7){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La cedula no es valida deben ser 10 digitos jugador4!");
+            return true;
+        }
+        
+         int iedadj = Integer.parseInt(this.jugador4_edad.getText().trim());
+      
+        
+        if(iedadj<=50&&iedadj>=5){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "La edad no es valida  jugador4!");
+            return true;
+        }
+        
+         return false;         
+ }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton cancelar;
     public javax.swing.JLabel jLabel1;

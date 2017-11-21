@@ -62,6 +62,8 @@ public class tablero_juego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panel_juego1 = new proyecto__c3.Panel_juego();
         turno_color = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1015, 640));
@@ -195,6 +197,15 @@ public class tablero_juego extends javax.swing.JFrame {
         turno_color.setText("turno");
         getContentPane().add(turno_color);
         turno_color.setBounds(730, 290, 160, 50);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Versión beta en esta podemos encontrar un\njuego clásico de parqués con unas \ncaracterísticas únicas consta de 1 sola ficha\ncada jugador y el  ganador será aquel que \nllegue de primeras al final del recorrido y \ncada ficha es inmune no será afectada por \nninguna otra ficha cada jugador tendrá 2 \ntiros de dados para salir de la cárcel");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(626, 346, 370, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1019,6 +1030,8 @@ void juego (int dado1,int dado2){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblD1;
     private javax.swing.JLabel lblD2;
     private javax.swing.JLabel lblDado1;
